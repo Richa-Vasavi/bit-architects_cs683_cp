@@ -21,7 +21,7 @@ for benchsuite in ${BENCHSUITES}; do
 		if ${BUILD_CHAMPSIM}; then
 
 			echo "Generating ${ROOT_DIR}/sim_conf/champsim_${base_conf}.json..."
-			${ROOT_DIR}/scripts/gen_champsim_conf.py ${ROOT_DIR}/sim_conf/champsim_dev_baseline.json ${base_conf}
+			${ROOT_DIR}/scripts/gen_champsim_conf.py ${CHAMPSIM_DIR}/champsim_fdip_baseline.json ${base_conf}
 			${CHAMPSIM_DIR}/config.sh ${ROOT_DIR}/sim_conf/champsim_${base_conf}.json
 			cd ${CHAMPSIM_DIR}
 			make

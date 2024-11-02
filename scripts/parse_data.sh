@@ -1,7 +1,11 @@
 
+source env.sh
+
 CONFIG_FILE=$1
 source $CONFIG_FILE
 
+
+mkdir -p ${ROOT_DIR}/stats
 
 for BENCHSUITE in ${BENCHSUITES}; do
 
@@ -20,16 +24,13 @@ for BENCHSUITE in ${BENCHSUITES}; do
 			SIMPOINTS=""
 		fi
 		
-
-		mkdir -p ${ROOT_DIR}/stats
-
 		echo "Preparing ${BENCHSUITE}${TAG}..."
 
 		if [ "${GENERATE_STATS}" == "True" ]; then 
 			echo "Parsing raw ChampSim data..."
 			for bench in ${BENCHMARKS}; do
 				status=`python3 ${ROOT_DIR}/scripts/convert_champsim2csv.py --input-file ${ROOT_DIR}/dump/${bench}${TAG}_run.out \
-																																			--output ${ROOT_DIR}/stats/${bench}${TAG}.csv`
+																																		--output ${ROOT_DIR}/stats/${bench}${TAG}.csv`
 				if [[ ${status} ]]; then
 					echo "Failed parsing ${bench}"
 					BENCHMARKS=`echo ${BENCHMARKS} | sed "s/${bench}\b//g"`
@@ -50,10 +51,10 @@ for BENCHSUITE in ${BENCHSUITES}; do
 						fi
 					done
 						
-					python3 ./scripts/apply_weights.py	--input-files $data_files \
-																							--simpoints-file ./weights/${bench}/simpoints.out \
-																							--weights-file ./weights/${bench}/weights.out \
-																							--output-file ./stats/${bench}${TAG}.csv 
+					python3 ${ROOT_DIR}/scripts/apply_weights.py	--input-files $data_files \
+																												--simpoints-file ${ROOT_DIR}/weights/${bench}/simpoints.out \
+																												--weights-file ${ROOT_DIR}/weights/${bench}/weights.out \
+																												--output-file ${ROOT_DIR}/stats/${bench}${TAG}.csv 
 				done
 				BENCHMARKS=${BENCHNAMES}
 			fi
