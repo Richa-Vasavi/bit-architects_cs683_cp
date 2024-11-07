@@ -7,16 +7,21 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import PathPatch
 from matplotlib.patches import Path
 import seaborn as sns
-#import scienceplots
 import itertools
 from matplotlib.colors import ListedColormap
 import matplotlib.lines as mlines
 from scipy.stats import gmean
 
 #default plot parameters, user can overwrite them
-plot_parameters = { 'ylabel': 'unset', 'xlabel': 'unset', 'fontsize': 11, 
-					'legend_cols': 2, 'legend_yoffset': 0.5, 'legend_xoffset': 1.1,
-					'alpha': 1.0 }
+plot_parameters = { 'ylabel': 'unset', 
+										'xlabel': 'unset', 
+										'fontsize': 11, 
+										'legend_cols': 2, 
+										'legend_yoffset': 0.5, 
+										'legend_xoffset': 1.1,
+										'alpha': 1.0 
+									}
+
 
 def load_df(input_data_files, input_tags, cache_type, op_type, sort = False, sorted_index = None):
 		# create data dataframe
@@ -25,15 +30,12 @@ def load_df(input_data_files, input_tags, cache_type, op_type, sort = False, sor
 		for input_file in input_data_files:
 				tag = input_tags[i] #.pop(0) 
 				new_df = pd.read_csv(input_file, sep=',', index_col='benchmarks')
-				print(input_file + " size is " + str(len(new_df)))
+
 				if (isinstance(cache_type, list)):
 					new_df = new_df.loc[(new_df['CACHE'].isin(cache_type)) & (new_df['OP'] == op_type)]
 				else:
 					new_df = new_df.loc[(new_df['CACHE'] == cache_type) & (new_df['OP'] == op_type)]
-				#new_df = new_df.add_suffix('_' + tag)
-				# drop string columns, makes calculating gmean etc easier
-				#new_df.drop(new_df.iloc[:, 0:2], axis=1, inplace=True)
-				#new_df = new_df.astype(float)
+
 				new_df['conf'] = tag
 				new_df['MPKI'] = (new_df['MISS'] * 1000) / new_df['INSTRUCTIONS']
 				new_df['iMPKI'] = (new_df['iMISS'] * 1000) / new_df['INSTRUCTIONS']
@@ -48,43 +50,38 @@ def load_df(input_data_files, input_tags, cache_type, op_type, sort = False, sor
 								sorted_index = new_df.index.values.tolist() 
 							else:
 								new_df = new_df.reindex(sorted_index)
+
 						new_df['benchmarks'] = new_df.index
 						df = new_df
 				else:
 						if (sort):
 							new_df = new_df.reindex(sorted_index)
+
 						new_df['benchmarks'] = new_df.index
 						df = pd.concat([df, new_df])
 
 				i += 1 # that's for tags' list
-		#print(df.index)
-		#df.to_csv('test2.csv')
+
 		return df
 
 
 def load_df2(	input_data_files, input_tags1, input_tags2, cache_type, op_type, 
-				sort = False, sorted_index = None):
+							sort = False, sorted_index = None):
 		# create data dataframe
 		df = pd.DataFrame()
 		i = 0
 		j = 0
-		#print("new dataframe")
 		for input_file in input_data_files:
 				tag1 = input_tags1[i] #.pop(0)
 				tag2 = input_tags2[j]
 				new_df = pd.read_csv(input_file, sep=',', index_col='benchmarks')
-				#print(input_file + " size is " + str(len(new_df)))
+
 				if (isinstance(cache_type, list)):
 					new_df = new_df.loc[(new_df['CACHE'].isin(cache_type)) & (new_df['OP'] == op_type)]
 				else:
 					new_df = new_df.loc[(new_df['CACHE'] == cache_type) & (new_df['OP'] == op_type)]
-				#new_df = new_df.add_suffix('_' + tag)
-				# drop string columns, makes calculating gmean etc easier
-				#new_df.drop(new_df.iloc[:, 0:2], axis=1, inplace=True)
-				#new_df = new_df.astype(float)
-				#print(tag1)
+
 				new_df['conf1'] = tag1
-				#print(tag2)
 				new_df['conf2'] = tag2
 				new_df['MPKI'] = (new_df['MISS'] * 1000) / new_df['INSTRUCTIONS']
 				new_df['iMPKI'] = (new_df['iMISS'] * 1000) / new_df['INSTRUCTIONS']
@@ -92,7 +89,6 @@ def load_df2(	input_data_files, input_tags1, input_tags2, cache_type, op_type,
 				new_df['itMPKI'] = (new_df['itMISS'] * 1000) / new_df['INSTRUCTIONS']
 				new_df['dtMPKI'] = (new_df['dtMISS'] * 1000) / new_df['INSTRUCTIONS']
 				mean = new_df['MPKI'].mean()
-				#print(tag1 + "_" + tag2 + " mean:" + str(mean))
 
 				if df.empty:
 						if (sort):
@@ -109,41 +105,32 @@ def load_df2(	input_data_files, input_tags1, input_tags2, cache_type, op_type,
 						new_df['benchmarks'] = new_df.index
 						df = pd.concat([df, new_df])
 			
-				#print("reset_factor:" + str(reset_factor))	
-				#print("i:" + str(i))	
 				if (i == (len(input_tags1)- 1)):
 					i = 0
 					j += 1
 				else: 
 					i += 1 # that's for tags' list
 
-		#print(df.index)
-		#df.to_csv('test2.csv')
 		return df
 
+
 def load_df3(	input_data_files, input_tags1, input_tags2, cache_type, op_type, 
-				sort = False, sorted_index = None):
+							sort = False, sorted_index = None):
 		# create data dataframe
 		df = pd.DataFrame()
 		i = 0
 		j = 0
-		#print("new dataframe")
 		for input_file in input_data_files:
 				tag1 = input_tags1[i] #.pop(0)
 				tag2 = input_tags2[i]
 				new_df = pd.read_csv(input_file, sep=',', index_col='benchmarks')
-				#print(input_file + " size is " + str(len(new_df)))
+
 				if (isinstance(cache_type, list)):
 					new_df = new_df.loc[(new_df['CACHE'].isin(cache_type)) & (new_df['OP'] == op_type)]
 				else:
 					new_df = new_df.loc[(new_df['CACHE'] == cache_type) & (new_df['OP'] == op_type)]
-				#new_df = new_df.add_suffix('_' + tag)
-				# drop string columns, makes calculating gmean etc easier
-				#new_df.drop(new_df.iloc[:, 0:2], axis=1, inplace=True)
-				#new_df = new_df.astype(float)
-				#print(tag1)
+
 				new_df['conf1'] = tag1
-				#print(tag2)
 				new_df['conf2'] = tag2
 				new_df['MPKI'] = (new_df['MISS'] * 1000) / new_df['INSTRUCTIONS']
 				new_df['iMPKI'] = (new_df['iMISS'] * 1000) / new_df['INSTRUCTIONS']
@@ -151,7 +138,6 @@ def load_df3(	input_data_files, input_tags1, input_tags2, cache_type, op_type,
 				new_df['itMPKI'] = (new_df['itMISS'] * 1000) / new_df['INSTRUCTIONS']
 				new_df['dtMPKI'] = (new_df['dtMISS'] * 1000) / new_df['INSTRUCTIONS']
 				mean = new_df['MPKI'].mean()
-				#print(tag1 + "_" + tag2 + " mean:" + str(mean))
 
 				if df.empty:
 						if (sort):
@@ -168,82 +154,58 @@ def load_df3(	input_data_files, input_tags1, input_tags2, cache_type, op_type,
 						new_df['benchmarks'] = new_df.index
 						df = pd.concat([df, new_df])
 			
-				#print("reset_factor:" + str(reset_factor))	
-				#print("i:" + str(i))	
 				i += 1 # that's for tags' list
 
-		#print(df.index)
-		#df.to_csv('test3.csv')
 		return df
-
 
 
 def compute_variation(baseline_df, df, col_name, new_col_name, input_tags, revert=False): 
 	# scale baseline_df is smaller than df
-	#print(len(baseline_df.index))
-	#print(len(df.index))
 	if (len(df.index) > len(baseline_df.index)):
 		scale_by = int(len(df.index) / len(baseline_df.index))
 		baseline_orig_df = baseline_df
-		#print(scale_by)
 		for i in range(1, scale_by):
 			baseline_df['conf1'] = input_tags[i]
 			baseline_df = pd.concat([baseline_df, baseline_orig_df])
 	# compue improvement
-	#print(baseline_df)
 	if (revert):
 		df[new_col_name] = ((baseline_df[col_name] - df[col_name]) * 100 / df[col_name])
 	else:
 		df[new_col_name] = ((df[col_name] - baseline_df[col_name]) * 100 / baseline_df[col_name])
-	#print(df[col_name])
-	#print(df[new_col_name])
-	#df.to_csv("test.csv")	
+
 	return df
+
 
 def compute_variation2(baseline_df, df, col_name, new_col_name, input_tags1, input_tags2): 
 	# scale baseline_df is smaller than df
-	print(len(baseline_df.index))
-	print(len(df.index))
 	if (len(df.index) > len(baseline_df.index)):
 		scale_by = int(len(df.index) / len(baseline_df.index))
 		baseline_orig_df = baseline_df
-		print(scale_by)
 		for i in range(1, scale_by):
 			baseline_df['conf1'] = input_tags1[i]
 			baseline_df['conf2'] = input_tags2[i]
 			baseline_df = pd.concat([baseline_df, baseline_orig_df])
 	# compue improvement
-	#print(baseline_df)
 	df[new_col_name] = ((df[col_name] - baseline_df[col_name]) * 100 / baseline_df[col_name])
-	#print(df[col_name])
-	#print(df[new_col_name])
-	df.to_csv("test.csv")	
+
 	return df
 
 
 def compute_miss_cycles(baseline_df, df, input_tags1, input_tags2): 
 	# scale baseline_df is smaller than df
-	print(len(baseline_df.index))
-	print(len(df.index))
 	if (len(df.index) > len(baseline_df.index)):
 		scale_by = int(len(df.index) / len(baseline_df.index))
 		baseline_orig_df = baseline_df
-		print(scale_by)
 		for i in range(1, scale_by):
 			baseline_df['conf1'] = input_tags1[i]
 			baseline_df['conf2'] = input_tags2[i]
 			baseline_df = pd.concat([baseline_df, baseline_orig_df])
 	# compue improvement
-	#print(baseline_df)
 	df[new_col_name] = ((df[col_name] - baseline_df[col_name]) * 100 / baseline_df[col_name])
 	speedup = 1.00 + (df["IPC_IMPROVEMENT"] / 100)
-	print(speedup)
 	df[new_col_name] = (1 - (1/speedup))
-	#print(df[col_name])
-	#print(df[new_col_name])
-	df.to_csv("test.csv")	
-	return df
 
+	return df
 
 
 def compute_stat(df, stat_name):
@@ -251,27 +213,23 @@ def compute_stat(df, stat_name):
 		return df
 	elif stat_name == "MISS_CYCLES_":
 		df['MISS_CYCLES'] = (df['MISS'] * df['AVERAGE_MISS_LATENCY'].fillna(1))
-		#df['MISS_CYCLES'] = (df['HIT'] * 1) + (df['MISS'] * df['AVERAGE_MISS_LATENCY'].fillna(1))
 		df['MISS_CYCLES'] = df['MISS_CYCLES'] / ( df['CYCLES'])
 		df['MISS_CYCLES'] = df['MISS_CYCLES'] * 100
 		#TODO: this is only valid for ITLB
 		#TODO: 6 is hardcoded value for fetch width
 	elif stat_name == "MISS_CYCLES":
 		speedup = 1.00 + (df["IPC_IMPROVEMENT"] / 100)
-		print(speedup)
 		df["MISS_CYCLES"] = (1 - (1/speedup)) * 100
 
-
 	return df
+
 
 def filter_df(df, col, thrshld):
 	return df[df[col] >= thrshld]
 
 
 def sort_df(df, orig_tags, col, order):
-	print(df['conf'])
 	df = df.sort_values(by=['IPC_IMPROVEMENT'], ascending=order)
-	print(df['conf'])
 	new_df = pd.DataFrame()
 	for tag in orig_tags:	
 		filtered_df = df.loc[df['conf'] == tag]
@@ -279,12 +237,9 @@ def sort_df(df, orig_tags, col, order):
 		new_df = new_df.append(filtered_df, ignore_index=False)
 
 	df = new_df
-	print(df['conf'])
 
-	#df = df.sort_values(by=['IPC_IMPROVEMENT'], ascending=order)
-
-	#print("Sort is yet uniplemented!")
 	return df
+
 
 def create_plot(nrows, ncols, plot_width, plot_height, plot_extra_height):
 
@@ -343,15 +298,13 @@ def plot(data, x, y, hue, axes, plot_type, plot_params, show_xlabel = False, sho
 		#ax = sns.pointplot( data=data, x=x, y=y, hue=hue, linestyles='', 
 		#					scale=0.5, ax=axes)
 					
-	#ax.legend(loc='best', ncol=1, bbox_to_anchor=(0,0), frameon=False)
 	if (show_legend):
 		ax.legend(	loc='center', ncol=plot_params['legend_cols'], 
 					bbox_to_anchor=(plot_params['legend_yoffset'], plot_params['legend_xoffset']), frameon=False)
 	else:
 		if (ax.get_legend() != None):
 			ax.get_legend().remove()
-	#ax.legend(loc='lower left', frameon=False)
-	#ax.tick_params(axis="y", pad=2)
+
 	fontsize=plot_params['fontsize']
 	ax.set_ylabel(plot_params['ylabel'], fontsize=fontsize)
 	ax.set_xlabel(plot_params['xlabel'], fontsize=fontsize)
@@ -372,10 +325,6 @@ def plot(data, x, y, hue, axes, plot_type, plot_params, show_xlabel = False, sho
 
 def plot_mean_barplot(data, x, y, hue, axes, show_xlabel = False, show_legend = False):
 
-		#ax.set_yscale('symlog')
-	#ax.set_xticks([])
-	#ax.set_xlabel(plot_conf['xlabel'])
-	#ax.set_ylabel('IPC improvement (%)')
 	ax = sns.barplot(data=data, x=x, y=y, hue=hue, ax=axes)
 
 	ax.set_axisbelow(True)
@@ -405,10 +354,6 @@ def plot_single_stat(	input_baseline_files, input_data_files, input_tags, cache_
 		df = load_df(input_data_files, input_tags, cache_type, op_type, False)
 		df = compute_variation(baseline_df, df, 'IPC', 'IPC_IMPROVEMENT', input_tags)
 
-		df.to_csv('data.csv')
-
-		print(df.head(10).loc[:, stat_name])	
-
 		#fig, axes = create_plot(2, 2, plot_conf['plot_width'], plot_conf['plot_height'], 0)
 		plot_width = plot_conf['plot_width']
 		plot_height = plot_conf['plot_height']
@@ -423,8 +368,7 @@ def plot_single_stat(	input_baseline_files, input_data_files, input_tags, cache_
 				means.append(mean)
 		
 		means_df = pd.DataFrame({'benchmarks':'geomean', 'conf':input_tags, 'geomean':means})
-		#means_df = means_df.loc[(means_df['conf'] != input_tags[0])]
-		print(means_df)
+		#print(means_df)
 
 		sns.set_style("white")
 		axes.set_xticklabels(	axes.get_xticklabels(), rotation=plot_conf['rotation'], 
@@ -436,9 +380,6 @@ def plot_single_stat(	input_baseline_files, input_data_files, input_tags, cache_
 		ax = plot(df, 'benchmarks',stat_name, 'conf', axes, 
 							plot_conf['plot_type'], plot_parameters)
 
-		#plt.yticks(range(-10, 20))
-		#ax.set_ylim([0, 30])
-		#ax.set_xticklabels(ax.get_xticklabels(), minor=True)
 		#vertical line for our stuff
 		if plot_conf['add_seperator']:
 			plt.axvline(x=4.5, ymin=0, ymax=1, color='black', axes=axes)
@@ -462,9 +403,6 @@ def plot_ipc_improvement_single(	input_baseline_files, input_data_files, input_t
 
 		df.to_csv("data.csv")
 
-
-		print(df.head(100))
-		print(df['IPC'])
 		#matplotlib.rc('axes', edgecolor='black')
 		# compute means
 		means = []
@@ -475,7 +413,7 @@ def plot_ipc_improvement_single(	input_baseline_files, input_data_files, input_t
 		
 		means_df = pd.DataFrame({'benchmarks':'geomean', 'conf':input_tags, 'geomean':means})
 		#means_df = means_df.loc[(means_df['conf'] != input_tags[0])]
-		print(means_df)
+		#print(means_df)
 
 		sns.set_style("white")
 		axes.set_xticklabels(	axes.get_xticklabels(), rotation=plot_conf['rotation'], 
@@ -506,8 +444,8 @@ def plot_stat_w_mean(	input_data_file, stat_name, page_type,
 
 		_min = df[stat_name].min()
 		_max = df[stat_name].max()
-		print(stat_name + "_min:" + str(_min))
-		print(stat_name + "_max:" + str(_max))
+		#print(stat_name + "_min:" + str(_min))
+		#print(stat_name + "_max:" + str(_max))
 		#means_df = pd.DataFrame({'benchmarks':'average', 'average':mean}, index=[1])
 		#print(means_df)
 
@@ -576,7 +514,7 @@ def plot_ipc_improvement_w_means(	input_baseline_files, input_data_files, input_
 				means.append(mean)
 		
 		means_df = pd.DataFrame({'benchmarks':'geomean', 'conf':input_tags, 'geomean':means})
-		print(means_df)
+		#print(means_df)
 
 		#fig, axes = create_plot(2, 2, plot_conf['plot_width'], plot_conf['plot_height'], 0)
 		plot_width = plot_conf['plot_width']
@@ -678,7 +616,7 @@ def plot_latency_w_means(	input_data_files, input_tags, cache_type,
 		#ax.set_xticks([])
 		#ax.set_xlabel(plot_conf['xlabel'])
 		#ax.set_ylabel('IPC improvement (%)')
-		print(means_dfm)
+		#print(means_dfm)
 		ax = sns.barplot(data=means_dfm, x='benchmarks', y='vals', hue='cols', ax=axes[1])
 
 		ax.set_axisbelow(True)
@@ -718,9 +656,8 @@ def plot_average_multiple_caches(	input_baseline_files, input_data_files, input_
 				caches.append(cache)
 				confs.append(conf)
 		
-
 		means_df = pd.DataFrame({'benchmarks':'geomean', 'cache':caches, 'conf': confs, 'geomean':means})
-		print(means_df)
+		#print(means_df)
 
 		#fig, axes = create_plot(2, 2, plot_conf['plot_width'], plot_conf['plot_height'], 0)
 		plot_width = plot_conf['plot_width']
@@ -840,7 +777,7 @@ def plot_average_multiple_caches_single_fig(	input_st_data_files, input_smt_data
 		
 
 			means_df = pd.DataFrame({'benchmarks':'geomean', 'cache':caches, 'conf': confs, 'geomean':means})
-			print(means_df)
+			#print(means_df)
 
 			i = 0
 			for cache in cache_types:
@@ -914,7 +851,7 @@ def plot_single_column_figure(	input_baseline_files, input_data_files, input_tag
 		baseline_df = load_df(input_baseline_files, input_tags, cache_type, op_type, False)
 		df = load_df(input_data_files, input_tags, cache_type, op_type)
 		df = compute_variation(baseline_df, df, 'IPC', 'IPC_IMPROVEMENT', input_tags)
-		print(df)
+		#print(df)
 		# plot		
 		plot_width=plot_conf['plot_width']
 		plot_height=plot_conf['plot_height']
@@ -986,8 +923,8 @@ def plot_mpki_variation_all(input_data_files, input_tags_01, input_tags_02,
 		sns.set_palette(sns.color_palette(['#929292', '#424242']))
 
 		sns.set_style("white")
-		print(means_df)
-		print(means_dfm)
+		#print(means_df)
+		#print(means_dfm)
 
 		ax = means_df.loc[means_df['core'] == "Single Hardware Thread"][['iMPKI', 'dMPKI']].plot(kind='bar', stacked=True, ax=axes[0], linewidth=0) 
 		ax.set_xlabel('Single Hardware Thread', fontsize=12)
@@ -1049,8 +986,8 @@ def plot_impact_on_llc(	input_baseline_files, input_data_files, input_tags, cach
 		
 		mpki_df = pd.DataFrame({'benchmark': 'geomean', 'conf': confs, 'MPKI_VARIATION': mpki_means})
 		ipc_df = pd.DataFrame({'benchmark': 'geomean', 'conf': confs, 'IPC_IMPROVEMENT': ipc_means})
-		print(mpki_df)
-		print(ipc_df)
+		#print(mpki_df)
+		#print(ipc_df)
 		#sns.set_palette(sns.color_palette(['#929292', '#727272', '#424242']))
 		sns.set_palette(sns.color_palette(['#424242', '#424242', '#424242']))
 		# plots
@@ -1126,7 +1063,7 @@ def plot_dtmpki_variation(input_baseline_files, input_data_files, input_tags, ca
 
 		sns.set_style("white")
 
-		print(means_df)
+		#print(means_df)
 		ax = sns.barplot(		data=means_df, x='cache', y='dtMPKI_INCREASE', hue='conf', width=0.8,
 												ax=axes, edgecolor='k', linewidth=0)
 		ax.legend(loc='upper center', ncol=2, frameon=0, bbox_to_anchor=(0.5,1.2))
@@ -1340,13 +1277,13 @@ def plot_kit_mpki_breakdown( 	input_data_files, input_tags, cache_types,
 				
 					caches.append(cache)
 	
-			print(mpki_means)	
+			#print(mpki_means)	
 			means_df = pd.DataFrame({'conf': confs, 'cache': caches, metric: mpki_means})
 			#means_df = means_df.loc[(means_df['conf'] != input_tags[0])]
 			df['benchmarks'] = df.index
 			df = df[['benchmarks', 'CACHE', metric]]
 			
-			print(means_df)
+			#print(means_df)
 			ax = sns.barplot(	data=means_df, x='cache', y=metric, hue='conf', width=0.7,
 												ax=axes[1], edgecolor='black', linewidth=1)
 			#ax.set_yscale('symlog', linthreshy=0.01)
@@ -1357,7 +1294,7 @@ def plot_kit_mpki_breakdown( 	input_data_files, input_tags, cache_types,
 				# Define a custom hatch pattern
 				#custom_hatch = PathPatch(Path([(0, 0), (1, 1)], [Path.MOVETO, Path.LINETO]), hatch='xx', alpha=0.5, color='gray')
 
-				print(j)
+				#print(j)
 				if ((j == 0) and (hatch_idx == 0)):
 					rep_pol_legend_handle[0] = bar
 				if ((j == 2) and (hatch_idx == 0)):
@@ -1368,7 +1305,7 @@ def plot_kit_mpki_breakdown( 	input_data_files, input_tags, cache_types,
 					mpki_legend_handle[hatch_idx] = bar
 
 				if (j >= 4*(hatch_idx)):
-					print("bar[" + str(j) + "] -> " + hatches[hatch_idx])
+					#print("bar[" + str(j) + "] -> " + hatches[hatch_idx])
 					bar.set_hatch(hatches[hatch_idx])
 					#bar.set_hatch(custom_hatch)
 					#bar.set_edgecolor('grey')
@@ -1781,15 +1718,15 @@ def plot_qualcom_vs_spec(	input_data_files, input_tags, cache_type,
 		df = pd.concat([df_qualcomm, df_spec], axis=0)
 
 		# print some stats
-		print(df_qualcomm[stat_name].max())
-		print(df_qualcomm[stat_name].min())
+		#print(df_qualcomm[stat_name].max())
+		#print(df_qualcomm[stat_name].min())
 
 		# compute means
 		means = []
 		input_tags.reverse()
 		for conf in input_tags:
 			mean = df.loc[(df['conf'] == conf)][stat_name].mean()
-			print(conf + ":" + str(mean))
+			#print(conf + ":" + str(mean))
 			means.append(mean)
 		
 		means_df = pd.DataFrame({'benchmarks':'geomean', 'conf':input_tags, 'geomean':means})
@@ -1852,7 +1789,7 @@ def plot_itp_vs_mockingjay(	input_baseline_files, input_data_files, input_tags, 
 		
 		means_df = pd.DataFrame({'benchmarks':'geomean', 'conf':input_tags, 'geomean':means, 'mean_mpki': means_mpki})
 
-		print(means_df)
+		#print(means_df)
 		#fig, axes = create_plot(2, 2, plot_conf['plot_width'], plot_conf['plot_height'], 0)
 		plot_width = plot_conf['plot_width']
 		plot_height = plot_conf['plot_height']
@@ -1911,7 +1848,7 @@ def plot_mockingjay_vs_itp_ipc(	input_st_baseline_files, input_smt_baseline_file
 			#print(baseline_df)
 			#print(df)
 			df = compute_variation(baseline_df, df, 'IPC', 'IPC_IMPROVEMENT', input_tags)
-			print(df['IPC_IMPROVEMENT'].head(50))
+			#print(df['IPC_IMPROVEMENT'].head(50))
 
 
 			ax = sns.violinplot(data=df, y='IPC_IMPROVEMENT', x='conf', linewidth=.6, scale='count', 
@@ -1935,7 +1872,7 @@ def plot_mockingjay_vs_itp_ipc(	input_st_baseline_files, input_smt_baseline_file
 			means = []
 			for conf in input_tags:
 				mean = df.loc[(df['conf'] == conf)]['IPC_IMPROVEMENT'].mean()
-				print(conf + ":" + str(mean))
+				#print(conf + ":" + str(mean))
 				means.append(mean)
 
 			#means_df = pd.DataFrame({'benchmarks':'geomean', 'conf':input_tags, 'geomean':means})
@@ -2038,8 +1975,8 @@ def plot_mpki_breakdown(input_data_files, input_tags, cache_types,
 
 			sns.set_style("white")
 			#print(means_df)
-			print(cache_type)
-			print(means_dfm)
+			#print(cache_type)
+			#print(means_dfm)
 
 			#ax = sns.barplot(	data=means_dfm, x='policy', y='vals', hue='cols', 
 			#					linewidth=.5, edgecolor='black',ax=axes[1][i])
@@ -2139,7 +2076,7 @@ def plot_llc_pol_comparison(input_baseline_files, input_data_files,
 	for conf1 in l2c_tags:
 		conf2 = llc_tags[i]
 		mean = df.loc[(df['conf1'] == conf1) & (df['conf2'] == conf2)]['IPC_IMPROVEMENT'].mean()
-		print(conf1 + " - " + conf2 + ":" + str(mean))
+		#print(conf1 + " - " + conf2 + ":" + str(mean))
 		means.append(mean)
 		i += 1
 
@@ -2216,7 +2153,7 @@ def plot_mlt_instr_pages(	input_st_baseline_files, input_smt_baseline_files,
 
 			means_df = pd.DataFrame({'benchmarks':'geomean', 'conf1':confs1, 'conf2':confs2, 'geomean':means})
 
-			print(means_df)
+			#print(means_df)
 			
 			#markerprops = dict(markeredgecolor='white')
 
@@ -2313,7 +2250,7 @@ def plot_spec_eval_manual(output_file, plot_conf):
 
 		df = pd.DataFrame({'benchmarks':benchmarks, 'policy':policies, 'speedup':values})
 		#means_df = means_df.loc[(means_df['conf'] != input_tags[0])]
-		print(df)
+		#print(df)
 
 		sns.set_style("white")
 		axes.set_xticklabels(	axes.get_xticklabels(), rotation=plot_conf['rotation'], 
@@ -2387,22 +2324,22 @@ def plot_itlb_sensitivity(	input_qualcomm_baseline_files, input_qualcomm_data_fi
 		means = []
 		for conf in qualcomm_df['conf'].unique():
 			mean = qualcomm_df.loc[(qualcomm_df['conf'] == conf)][stat_name].mean()
-			print(conf + ":" + str(mean))
+			#print(conf + ":" + str(mean))
 			means.append(mean)
 
 		qualcomm_means_df = pd.DataFrame({'benchmarks':'geomean', 'workload': 'qualcomm', 'conf':input_tags, 'geomean':means})
 
-		print(qualcomm_means_df)
+		#print(qualcomm_means_df)
 
 		means = []
 		for conf in spec_df['conf'].unique():
 			mean = spec_df.loc[(spec_df['conf'] == conf)][stat_name].mean()
-			print(conf + ":" + str(mean))
+			#print(conf + ":" + str(mean))
 			means.append(abs(mean))
 		
 		spec_means_df = pd.DataFrame({'benchmarks':'geomean', 'workload': 'spec', 'conf':input_tags, 'geomean':means})
 
-		print(spec_means_df)
+		#print(spec_means_df)
 
 		means_df = pd.concat([qualcomm_means_df, spec_means_df], axis=0)
 
@@ -2461,4 +2398,59 @@ def plot_itlb_sensitivity(	input_qualcomm_baseline_files, input_qualcomm_data_fi
 		fig.savefig(output_file, bbox_inches='tight')
 
 
+
+def plot_itp_itlb_size_sensitivity(	input_baseline_files, input_data_files, replacement_tags, itlb_size_tags,
+																		cache_type, op_type, stat_name, plot_conf, output_file):
+
+		baseline_df = load_df3(input_baseline_files, replacement_tags, itlb_size_tags, cache_type, op_type, False)
+		df = load_df3(input_data_files, replacement_tags, itlb_size_tags, cache_type, op_type, False)
+
+		df = compute_variation2(baseline_df, df, 'IPC', 'IPC_IMPROVEMENT', replacement_tags, itlb_size_tags)
+
+		# compute means
+		means = []
+		i = 0
+		for conf1 in replacement_tags:
+			conf2 = itlb_size_tags[i]
+			mean = df.loc[(df['conf1'] == conf1) & (df['conf2'] == conf2)]['IPC_IMPROVEMENT'].median()
+			#print(conf1 + " - " + conf2 + ":" + str(mean))
+			means.append(mean)
+			i += 1
+		
+		#print(means_df)
+
+
+		plot_width = plot_conf['plot_width']
+		plot_height = plot_conf['plot_height']
+		fig, axes = plt.subplots(nrows=1, ncols=1, figsize=(plot_width, plot_height))
+		
+		#sns.set_palette(sns.color_palette(['#929292', '#424242']))
+		sns.set_palette(sns.color_palette(['#999999', '#777777', '#555555', '#333333']))
+
+		ax = sns.violinplot(data=df, y='IPC_IMPROVEMENT', x='conf2', hue='conf1', linewidth=1, scale='count', 
+													color='#aeaeae', ax=axes)
+		
+		i = 0
+		while (i < len(ax.collections)):
+			if (i % 2 == 0):
+				ax.collections[i].set_edgecolor('black')
+			else:
+				ax.collections[i].set_edgecolor('black')
+				ax.collections[i].set_linewidth(1)
+			i = i + 1
+
+		#ax.set_yticks([-10, 0, 12.5, 25])
+		#ax.set_ylim([-10, 25])
+
+		ax.set_axisbelow(True)
+		ax.grid(visible=True, axis='y', color='grey', alpha=0.5, linestyle='--', linewidth=1.5)
+
+		ax.legend(loc='center', ncol=3, bbox_to_anchor=(.5, 1.2), frameon=False, fontsize=7)
+
+		ax.set_ylabel(plot_conf['ylabel'], fontsize=7)
+		ax.set_xlabel(plot_conf['xlabel'], fontsize=7)
+		plt.xticks(fontsize=7)
+		plt.yticks(fontsize=7)
+
+		fig.savefig(output_file, dpi=220, bbox_inches='tight')
 

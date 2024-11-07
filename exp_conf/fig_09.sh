@@ -11,23 +11,23 @@ declare -A VAR_DECLARATIONS=(
 	['MIN_EVICTION_POSITION_L1D']="8" 
 	['MIN_EVICTION_POSITION_L2C']="4" 
 	['TLB_LOWER_STRESS_THRESHOLD']="1"
-	['TLB_UPPER_STRESS_THRESHOLD']="2.5" 
+	['TLB_UPPER_STRESS_THRESHOLD']="9" 
 	['INSTR_PAGE_SIZE_DIST']="${INSTR_PAGE_SIZE_DIST}"
 	['DATA_PAGE_SIZE_DIST']="${DATA_PAGE_SIZE_DIST}"
 )
 
 export CONFIGURATION_TAGS="
-fdip_l2c-r.tdrrip_llc-s.1537-w.16	
-fdip_l2c-r.ptp_llc-s.1537-w.16	
-fdip_stlb-r.chirp_llc-s.1537-w.16
-fdip_stlb-r.chirp_l2c-r.tdrrip_llc-s.1537-w.16
-fdip_stlb-r.chirp_l2c-r.ptp_llc-s.1537-w.16
-fdip_stlb-r.itp_llc-s.1537-w.16
-fdip_stlb-r.itp_l2c-r.tdrrip_llc-s.1537-w.16
-fdip_stlb-r.itp_l2c-r.ptp_llc-s.1537-w.16
-fdip_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16
+fig08_fdip_baseline_llc-s.1537-w.16	
+fig08_fdip_l2c-r.tdrrip_llc-s.1537-w.16	
+fig08_fdip_l2c-r.ptp_llc-s.1537-w.16	
+fig08_fdip_stlb-r.chirp_llc-s.1537-w.16
+fig08_fdip_stlb-r.chirp_l2c-r.tdrrip_llc-s.1537-w.16
+fig08_fdip_stlb-r.chirp_l2c-r.ptp_llc-s.1537-w.16
+fig08_fdip_stlb-r.itp_llc-s.1537-w.16
+fig08_fdip_stlb-r.itp_l2c-r.tdrrip_llc-s.1537-w.16
+fig08_fdip_stlb-r.itp_l2c-r.ptp_llc-s.1537-w.16
+fig08_fdip_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16
 "
-
 
 # GENERIC CONFIGURATION
 export ROOT_DIR=`pwd`

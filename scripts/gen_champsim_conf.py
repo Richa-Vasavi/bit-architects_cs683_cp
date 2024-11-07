@@ -53,7 +53,7 @@ if len(sys.argv) >= 3:
 	new_config = create_copy(default_config)
 	conf_tag = sys.argv[2]
 
-	print('\nCreating new configuration file with tag ' + conf_tag + "...\n")
+	#print('\nCreating new configuration file with tag ' + conf_tag + "...\n")
 	set_entry(new_config, None, 'executable_name', 'champsim_' + conf_tag)
 
 	

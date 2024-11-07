@@ -24,7 +24,7 @@ fdip_llc-s.1537-w.16
 # GENERIC CONFIGURATION
 export ROOT_DIR=`pwd`
 export EXP_NAME=""
-export BENCHSUITES="spec selected_qualcomm_srv_ap"
+export BENCHSUITES="spec selected_qualcomm_srv_ap smt_qualcomm_srv_ap"
 
 # SIMULATION 
 export SIM_WARMUP_INSTR=50000000

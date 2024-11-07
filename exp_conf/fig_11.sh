@@ -17,15 +17,15 @@ declare -A VAR_DECLARATIONS=(
 )
 
 export CONFIGURATION_TAGS="
-fdip_baseline_llc-s.1537-w.16
-fdip_llc-r.ship-s.1537-w.16
-fdip_llc-r.mockingjay-s.1537-w.16
-fdip_stlb-r.itp_llc-s.1537-w.16
-fdip_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16
-fdip_stlb-r.itp_llc-r.ship-s.1537-w.16
-fdip_stlb-r.itp_l2c-r.xptp_llc-r.ship-s.1537-w.16
-fdip_stlb-r.itp_llc-r.mockingjay-s.1537-w.16
-fdip_dyn-1-2.5_stlb-r.itp_l2c-r.xptp_llc-r.mockingjay-s.1537-w.16
+fig11_fdip_baseline_llc-s.1537-w.16
+fig11_fdip_llc-r.ship-s.1537-w.16
+fig11_fdip_llc-r.mockingjay-s.1537-w.16
+fig11_fdip_stlb-r.itp_llc-s.1537-w.16
+fig11_fdip_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16
+fig11_fdip_stlb-r.itp_llc-r.ship-s.1537-w.16
+fig11_fdip_stlb-r.itp_l2c-r.xptp_llc-r.ship-s.1537-w.16
+fig11_fdip_stlb-r.itp_llc-r.mockingjay-s.1537-w.16
+fig11_fdip_dyn-1-2.5_stlb-r.itp_l2c-r.xptp_llc-r.mockingjay-s.1537-w.16
 "
 
 

@@ -17,7 +17,8 @@ declare -A VAR_DECLARATIONS=(
 )
 
 export CONFIGURATION_TAGS="
-fdip_probi.80_stlb-r.probi_llc-s.1537-w.16
+fig04_fdip_baseline_llc-s.1537-w.16
+fig04_fdip_probi.80_stlb-r.probi_llc-s.1537-w.16
 "
 
 

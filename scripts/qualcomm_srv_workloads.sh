@@ -891,6 +891,7 @@ srv771_ap.champsimtrace.xz
 srv85_ap.champsimtrace.xz
 "
 
+#smt_srv12_ap_srv99_ap_1024i.champsimtrace.xz
 SMT_QUALCOMM_SRV_AP="
 smt_srv12_ap_srv128_ap_1024i.champsimtrace.xz
 smt_srv12_ap_srv180_ap_1024i.champsimtrace.xz
@@ -907,7 +908,6 @@ smt_srv12_ap_srv582_ap_1024i.champsimtrace.xz
 smt_srv12_ap_srv697_ap_1024i.champsimtrace.xz
 smt_srv12_ap_srv727_ap_1024i.champsimtrace.xz
 smt_srv12_ap_srv73_ap_1024i.champsimtrace.xz
-smt_srv12_ap_srv99_ap_1024i.champsimtrace.xz
 smt_srv207_ap_srv128_ap_1024i.champsimtrace.xz
 smt_srv207_ap_srv180_ap_1024i.champsimtrace.xz
 smt_srv207_ap_srv194_ap_1024i.champsimtrace.xz

@@ -1,6 +1,8 @@
 
-ROOT_DIR=`pwd`
-CHAMPSIM_DIR=${ROOT_DIR}/ChampSim
-TRACE_DIR=${ROOT_DIR}/traces
-DUMP_DIR=${ROOT_DIR}/dump
-STATS_DIR=${STATS_DIR}/stats
+export ROOT_DIR=`pwd`
+export CHAMPSIM_DIR=${ROOT_DIR}/ChampSim
+#export TRACE_DIR=${ROOT_DIR}/traces
+export TRACES_DIR="/scratch/nas/3/dchasapi/champsim_traces"
+export DUMP_DIR=${ROOT_DIR}/dump
+export STATS_DIR=${STATS_DIR}/stats
+FIGURES_DIR=${ROOT_DIR}/figures

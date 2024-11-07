@@ -11,7 +11,7 @@ declare -A VAR_DECLARATIONS=(
 	['MIN_EVICTION_POSITION_L1D']="8" 
 	['MIN_EVICTION_POSITION_L2C']="4" 
 	['TLB_LOWER_STRESS_THRESHOLD']="1"
-	['TLB_UPPER_STRESS_THRESHOLD']="2.5" 
+	['TLB_UPPER_STRESS_THRESHOLD']="99" 
 	['INSTR_PAGE_SIZE_DIST']="${INSTR_PAGE_SIZE_DIST}"
 	['DATA_PAGE_SIZE_DIST']="${DATA_PAGE_SIZE_DIST}"
 )
@@ -47,10 +47,40 @@ fdip_itlb-s.2-w.4_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16
 "
 
 
+export CONFIGURATION_TAGS="
+fdip_itlb-s.256-w.4_llc-s.1537-w.16
+fdip_itlb-s.128-w.4_llc-s.1537-w.16
+fdip_itlb-s.32-w.4_llc-s.1537-w.16
+fdip_itlb-s.16-w.4_llc-s.1537-w.16
+fdip_itlb-s.2-w.4_llc-s.1537-w.16
+
+fdip_itlb-s.256-w.4_stlb-r.itp_llc-s.1537-w.16
+fdip_itlb-s.128-w.4_stlb-r.itp_llc-s.1537-w.16
+fdip_itlb-s.32-w.4_stlb-r.itp_llc-s.1537-w.16
+fdip_itlb-s.16-w.4_stlb-r.itp_llc-s.1537-w.16
+fdip_itlb-s.2-w.4_stlb-r.itp_llc-s.1537-w.16
+
+fdip_itlb-s.256-w.4_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16
+fdip_itlb-s.128-w.4_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16
+fdip_itlb-s.32-w.4_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16
+fdip_itlb-s.16-w.4_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16
+fdip_itlb-s.2-w.4_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16
+"
+
+export CONFIGURATION_TAGS="
+fdip_itlb-s.256-w.4_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16
+fdip_itlb-s.128-w.4_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16
+fdip_itlb-s.32-w.4_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16
+fdip_itlb-s.16-w.4_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16
+fdip_itlb-s.2-w.4_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16
+"
+
 # GENERIC CONFIGURATION
 export ROOT_DIR=`pwd`
 export EXP_NAME=""
-export BENCHSUITES="selected_qualcomm_srv_ap smt_qualcomm_srv_ap"
+#export BENCHSUITES="selected_qualcomm_srv_ap smt_qualcomm_srv_ap"
+export BENCHSUITES="smt_qualcomm_srv_ap"
+#export BENCHSUITES="fix"
 
 # SIMULATION 
 export SIM_WARMUP_INSTR=50000000

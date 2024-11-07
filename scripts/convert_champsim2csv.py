@@ -99,7 +99,7 @@ def parse_champsim_stats(input_file, output_file):
 
     # Get number of instructions
     lines = re.findall('instructions:\s+\d+', data)
-    instructions = lines[len(lines)-1].split()[1]
+    instructions = lines[len(lines)-4].split()[1]
 
     # Get number of cycles
     lines = re.findall('cycles:\s+\d+', data)

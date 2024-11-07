@@ -5,12 +5,12 @@ HOME=`pwd`
 BENCHSUITE=$1 
 BIN=$2
 DESCR_TAG=$3
-DUMP_DIR=${HOME}/dump
 
-mkdir -p $DUMP_DIR
+echo $DUMP_DIR
+mkdir -p ${DUMP_DIR}
 
 source ${HOME}/scripts/benchmarks.sh
-export TRACES_DIR="/scratch/nas/3/dchasapi/champsim_traces/${TRACES_DIR}"
+export TRACES_DIR="${TRACES_DIR}/${TRACES_PATH}"
 
 for trace in $TRACES; do
 
@@ -34,7 +34,7 @@ export DATA_PAGE_DIST_FILENAME=${TRACE_EXT_DIR}/${bench}${DATA_PAGE_DIST_FILENAM
 export PAGE_ADDRESS_STATS_FILENAME_PREFIX=${HOME}/dump/${bench}${DESCR_TAG}_page_access_stats
 
 gdb -batch -ex "r" -ex "bt" -ex "q" --args \
-	./bin/${BIN} 	--warmup_instructions ${SIM_WARMUP_INSTR} \
+	${ROOT_DIR}/bin/${BIN} 	--warmup_instructions ${SIM_WARMUP_INSTR} \
 								--simulation_instructions ${SIM_RUN_INSTR} \
 								${TRACES_DIR}/$trace
 

@@ -17,11 +17,16 @@ declare -A VAR_DECLARATIONS=(
 )
 
 export CONFIGURATION_TAGS="
-fdip_mlpg-i.\${INSTR_PAGE_SIZE_DIST}-d.\${DATA_PAGE_SIZE_DIST}_baseline_llc-s.1537-w.16
-fdip_mlpg-i.\${INSTR_PAGE_SIZE_DIST}-d.\${DATA_PAGE_SIZE_DIST}_l2c-r.tdrrip_llc-s.1537-w.16
-fdip_mlpg-i.\${INSTR_PAGE_SIZE_DIST}-d.\${DATA_PAGE_SIZE_DIST}_l2c-r.ptp_llc-s.1537-w.16
-fdip_mlpg-i.\${INSTR_PAGE_SIZE_DIST}-d.\${DATA_PAGE_SIZE_DIST}_stlb-r.chirp_llc-s.1537-w.16
-fdip_mlpg-i.\${INSTR_PAGE_SIZE_DIST}-d.\4{DATA_PAGE_SIZE_DIST}_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16
+fig12_fdip_baseline_llc-s.1537-w.16
+fig12_fdip_l2c-r.tdrrip_llc-s.1537-w.16
+fig12_fdip_l2c-r.ptp_llc-s.1537-w.16
+fig12_fdip_stlb-r.chirp_llc-s.1537-w.16
+fig12_fdip_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16
+fig12_fdip_mlpg-i.{INSTR_PAGE_SIZE_DIST}-d.{DATA_PAGE_SIZE_DIST}_baseline_llc-s.1537-w.16
+fig12_fdip_mlpg-i.{INSTR_PAGE_SIZE_DIST}-d.{DATA_PAGE_SIZE_DIST}_l2c-r.tdrrip_llc-s.1537-w.16
+fig12_fdip_mlpg-i.{INSTR_PAGE_SIZE_DIST}-d.{DATA_PAGE_SIZE_DIST}_l2c-r.ptp_llc-s.1537-w.16
+fig12_fdip_mlpg-i.{INSTR_PAGE_SIZE_DIST}-d.{DATA_PAGE_SIZE_DIST}_stlb-r.chirp_llc-s.1537-w.16
+fig12_fdip_mlpg-i.{INSTR_PAGE_SIZE_DIST}-d.{DATA_PAGE_SIZE_DIST}_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16
 "
 
 
