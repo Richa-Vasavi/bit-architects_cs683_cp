@@ -5,7 +5,7 @@ Repository for the iTP and xPTP replacement policies for TLB anc L2.   The iTP p
 
 SLURM job manager
 
-GCC
+GCC >= 11.4.0 (older version will probably work, but have not been tested)
 
 Python >= 3.0
 
