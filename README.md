@@ -41,7 +41,7 @@ Optinally to download the SPEC CPU 2006/2017 workloads run the following:
 
 If no arguments are passed then both Qualcomm and SPEC will be downloaded.
 
-To manually deploy the traces create the corresponding directories in traces:
+Alternatively, to manually deploy the traces create the corresponding directories in traces:
 
 	mkdir -p ./traces/qualcomm_srv
  	mkdir -p ./traces/spec
