@@ -11,11 +11,11 @@ Python >= 3.0
 
 python packages:
 
-	* zenodo_get
-	* pandas
-  	* scipy
-   	* matplotlib
-    	* seaborn
+* zenodo_get
+* pandas
+* scipy
+* matplotlib
+* seaborn
 
 ## Installation 
 
