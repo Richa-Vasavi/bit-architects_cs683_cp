@@ -29,7 +29,7 @@ To prepare the simualtion environment run:
 	cd itp_asplos25_AE
 	source env.sh
 
-The env.sh scripts can be edited to setupe a custom directory tree.
+The env.sh scripts can be edited to setup a custom directory tree.
 
 To download and deploy the necessary application traces run the following script:
 
