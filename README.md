@@ -12,6 +12,7 @@ Python >= 3.0
 python packages:
 
 * zenodo_get
+* argparse
 * pandas
 * scipy
 * matplotlib
@@ -25,6 +26,7 @@ Clone this repository to deploy the artifact evaluation workflow infrastructure:
 
 To prepare the simualtion environment run:
 
+	cd itp_asplos25_AE
 	source env.sh
 
 The env.sh scripts can be edited to setupe a custom directory tree.
@@ -39,13 +41,17 @@ Optinally to download the SPEC CPU 2006/2017 workloads run the following:
 
 If no arguments are passed then both Qualcomm and SPEC will be downloaded.
 
-TODO: manuall installation
+To manually deploy the traces create the corresponding directories in traces:
 
+	mkdir -p ./traces/qualcomm_srv
+ 	mkdir -p ./traces/spec
+Download the Qualcomm Sever and SPEC CPU 2006/2017 workloads from https://doi.org/10.5281/zenodo.10959704,  https://doi.org/10.5281/zenodo.10959704 and https://doi.org/10.5281/zenodo.10960003, and extract them in their corresponding directories.  The ./traces/qualcomm_srv and ./traces/spec directories should contain the *.champsimtrace.xz files. 
 
 ## Running experiments to collect data
 
-First prepare the simulation environment, if not done already.
+First prepare the simulation environment, if not done already:
 
+	cd itp_asplos25_AE
 	source env.sh
 
 To collect the necessary experimental data to recreate the most improtant plots, simply run the following command:
