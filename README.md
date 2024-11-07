@@ -4,11 +4,15 @@ Repository for the iTP and xPTP replacement policies for TLB anc L2.   The iTP p
 ## Dependencies
 
 SLURM job manager
+
 GCC
+
 Python >= 3.0
+
 python packages:
+
 	* zenodo_get
- 	* pandas
+	* pandas
   	* scipy
    	* matplotlib
     	* seaborn
