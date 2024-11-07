@@ -887,11 +887,7 @@ def plot_mpki_variation_all(input_data_files, input_tags_01, input_tags_02,
 			for tag2 in input_tags_02:
 				input_tags.append(tag1 + "#" + tag2)
 		
-		#baseline_df = load_df(input_baseline_files, input_tags, cache_type, op_type, False)
 		df = load_df(input_data_files, input_tags, cache_type, op_type, False)
-
-		#df = compute_variation(baseline_df, df, 'iMPKI', 'iMPKI_INCREASE')
-		#df = compute_variation(baseline_df, df, 'dMPKI', 'dMPKI_INCREASE')
 
 		# compute means
 		impki_means = []
@@ -910,7 +906,6 @@ def plot_mpki_variation_all(input_data_files, input_tags_01, input_tags_02,
 		
 		means_df = pd.DataFrame({'conf': confs, 'core': cores, 'iMPKI': impki_means, 'dMPKI': dmpki_means})
 		means_dfm = means_df.melt(['conf', 'core'], var_name='cols', value_name='vals')
-		#means_df = means_df.loc[(means_df['conf'] != input_tags[0])]
 		means_dfm.set_index(['conf', 'core'], inplace=True)
 		means_dfm['MPKI'] = means_dfm.groupby(level=['conf', 'core']).cumsum()
 		means_dfm.reset_index(inplace=True)
@@ -923,8 +918,6 @@ def plot_mpki_variation_all(input_data_files, input_tags_01, input_tags_02,
 		sns.set_palette(sns.color_palette(['#929292', '#424242']))
 
 		sns.set_style("white")
-		#print(means_df)
-		#print(means_dfm)
 
 		ax = means_df.loc[means_df['core'] == "Single Hardware Thread"][['iMPKI', 'dMPKI']].plot(kind='bar', stacked=True, ax=axes[0], linewidth=0) 
 		ax.set_xlabel('Single Hardware Thread', fontsize=12)

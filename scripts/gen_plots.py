@@ -282,44 +282,66 @@ def gen_plot(figure_name):
 		plots.plot_average_multiple_caches_single_fig(	input_st_data_files, input_smt_data_files, 
 																										input_tags, cache_types, op_type, 
 																										"AVERAGE_MISS_LATENCY", plot_conf, output_file)
-	
-	if (figure_name == "fig_11"):
-		benchsuites = [ "selected_qualcomm_server_ap", "smt_qualcomm_server_ap" ]
-	
-		input_baseline_files =	[	
-										"./stats/" + benchsuite + "_fig11_fdip_baseline_llc-s.1537-w.16.csv",
-										"./stats/" + benchsuite + "_fig11_fdip_baseline_llc-s.1537-w.16.csv",
-										"./stats/" + benchsuite + "_fig11_fdip_llc-r.ship-s.1537-w.16.csv",
-										"./stats/" + benchsuite + "_fig11_fdip_llc-r.ship-s.1537-w.16.csv",
-										"./stats/" + benchsuite + "_fig11_fdip_llc-r.mockingjay-s.1537-w.16.csv",
-										"./stats/" + benchsuite + "_fig11_fdip_llc-r.mockingjay-s.1537-w.16.csv"
-									]
-	
-		input_data_files = [
-									"./stats/" + benchsuite + "_fig11_fdip_stlb-r.itp_llc-s.1537-w.16.csv",
-									"./stats/" + benchsuite + "_fig11_fdip_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16.csv",
-									"./stats/" + benchsuite + "_fig11_fdip_stlb-r.itp_llc-r.ship-s.1537-w.16.csv",
-									"./stats/" + benchsuite + "_fig11_fdip_stlb-r.itp_l2c-r.xptp_llc-r.ship-s.1537-w.16.csv",
-									"./stats/" + benchsuite + "_fig11_fdip_stlb-r.itp_llc-r.mockingjay-s.1537-w.16.csv",
-									"./stats/" + benchsuite + "_fig11_fdip_dyn-1-2.5_stlb-r.itp_l2c-r.xptp_llc-r.mockingjay-s.1537-w.16.csv"
-								]
-	
-	
-		l2c_tags = [ "iTP", "iTP+xPTP", "iTP", "iTP+xPTP", "iTP", "iTP+xPTP" ]
-		llc_tags = [ "LRU", "LRU", "SHiP", "SHiP", "Mockingjay", "Mockingjay", ]
-	
-		plot_conf = { 'xlabel':  'dummy', 'plot_type': 'violin'}
-		plot_conf['plot_width'] = 4
-		plot_conf['plot_height'] = 1	
-	
+
+	if (figure_name == "fig_10"):
+		
+		input_data_files =	[	
+													"./stats/selected_qualcomm_srv_ap_fig08_fdip_baseline_llc-s.1537-w.16.csv",
+													"./stats/smt_qualcomm_srv_ap_fig08_fdip_baseline_llc-s.1537-w.16.csv",
+													"./stats/selected_qualcomm_srv_ap_fig08_fdip_stlb-r.itp_llc-s.1537-w.16.csv",
+													"./stats/smt_qualcomm_srv_ap_fig08_fdip_stlb-r.itp_llc-s.1537-w.16.csv"
+												]
+
+		plot_conf = { 'xlabel':  'smth', 'plot_type': 'barplot'}
+		plot_conf['plot_width'] = 6
+		plot_conf['plot_height'] = 1
+		input_tags_01 = [ "LRU", "iTP" ]
+		input_tags_02 = [ "Single Hardware Thread", "Two Hardware Threads" ]
 		cache_type = "cpu0_STLB"
 		op_type = "TOTAL"
+		output_file = FIGURES_DIR + "/fig10_itp_mpki_variation_breakdown_all.pdf"
+		print(FIGURES_DIR + "/fig10_itp_mpki_variation_breakdown_all.pdf")
+		plots.plot_mpki_variation_all(	input_data_files, input_tags_01, input_tags_02, 
+																		cache_type, op_type, plot_conf, output_file)
 	
-		output_file = FIGURES_DIR + "/fig11_soa_llc_comparison_ipc_" + benchsuite + "_over_lru.pdf"
-		print(FIGURES_DIR + "/fig11_soa_llc_comparison_ipc_" + benchsuite + "_over_lru.pdf")
-		plots.plot_llc_pol_comparison(	input_baseline_files, input_data_files, 
-											l2c_tags, llc_tags, cache_type, op_type, plot_conf, 
-											output_file)
+	if (figure_name == "fig_11"):
+		benchsuites = [ "selected_qualcomm_srv_ap", "smt_qualcomm_srv_ap" ]
+
+		for benchsuite in benchsuites:	
+			input_baseline_files =	[	
+											"./stats/" + benchsuite + "_fig11_fdip_baseline_llc-s.1537-w.16.csv",
+											"./stats/" + benchsuite + "_fig11_fdip_baseline_llc-s.1537-w.16.csv",
+											"./stats/" + benchsuite + "_fig11_fdip_llc-r.ship-s.1537-w.16.csv",
+											"./stats/" + benchsuite + "_fig11_fdip_llc-r.ship-s.1537-w.16.csv",
+											"./stats/" + benchsuite + "_fig11_fdip_llc-r.mockingjay-s.1537-w.16.csv",
+											"./stats/" + benchsuite + "_fig11_fdip_llc-r.mockingjay-s.1537-w.16.csv"
+										]
+	
+			input_data_files = [
+										"./stats/" + benchsuite + "_fig11_fdip_stlb-r.itp_llc-s.1537-w.16.csv",
+										"./stats/" + benchsuite + "_fig11_fdip_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16.csv",
+										"./stats/" + benchsuite + "_fig11_fig11_fdip_stlb-r.itp_llc-r.ship-s.1537-w.16.csv",
+										"./stats/" + benchsuite + "_fig11_fdip_stlb-r.itp_l2c-r.xptp_llc-r.ship-s.1537-w.16.csv",
+										"./stats/" + benchsuite + "_fig11_fdip_stlb-r.itp_llc-r.mockingjay-s.1537-w.16.csv",
+										"./stats/" + benchsuite + "_fig11_fdip_dyn-1-2.5_stlb-r.itp_l2c-r.xptp_llc-r.mockingjay-s.1537-w.16.csv"
+									]
+	
+	
+			l2c_tags = [ "iTP", "iTP+xPTP", "iTP", "iTP+xPTP", "iTP", "iTP+xPTP" ]
+			llc_tags = [ "LRU", "LRU", "SHiP", "SHiP", "Mockingjay", "Mockingjay", ]
+	
+			plot_conf = { 'xlabel':  'dummy', 'plot_type': 'violin'}
+			plot_conf['plot_width'] = 4
+			plot_conf['plot_height'] = 1	
+	
+			cache_type = "cpu0_STLB"
+			op_type = "TOTAL"
+	
+			output_file = FIGURES_DIR + "/fig11_soa_llc_comparison_ipc_" + benchsuite + "_over_lru.pdf"
+			print(FIGURES_DIR + "/fig11_soa_llc_comparison_ipc_" + benchsuite + "_over_lru.pdf")
+			plots.plot_llc_pol_comparison(input_baseline_files, input_data_files, 
+																		l2c_tags, llc_tags, cache_type, op_type, plot_conf, 
+																		output_file)
 	
 	
 	if (figure_name == "fig_12"):

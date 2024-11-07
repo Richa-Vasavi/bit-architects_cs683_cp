@@ -48,7 +48,6 @@ else
 	${ROOT_DIR}/scripts/parse_data.sh exp_conf/fig_01.sh
 	${ROOT_DIR}/scripts/parse_data.sh exp_conf/fig_02.sh
 	${ROOT_DIR}/scripts/parse_data.sh exp_conf/fig_08.sh
-	${ROOT_DIR}/scripts/parse_data.sh exp_conf/fig_10.sh
 	${ROOT_DIR}/scripts/parse_data.sh exp_conf/fig_11.sh
 	${ROOT_DIR}/scripts/parse_data.sh exp_conf/fig_12.sh
 	echo "Generating all plots..."
