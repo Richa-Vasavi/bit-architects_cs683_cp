@@ -28,17 +28,10 @@ fig11_fdip_stlb-r.itp_llc-r.mockingjay-s.1537-w.16
 fig11_fdip_stlb-r.itp-l2c-r.xptp-llc-r.mockingjay-s.1537-w.16
 "
 
-export CONFIGURATION_TAGS="
-fig11_fdip_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16
-fig11_fdip_stlb-r.itp_l2c-r.xptp_llc-r.ship-s.1537-w.16
-fig11_fdip_stlb-r.itp_l2c-r.xptp_llc-r.mockingjay-s.1537-w.16
-"
-
 # GENERIC CONFIGURATION
 export ROOT_DIR=`pwd`
 export EXP_NAME=""
 export BENCHSUITES="selected_qualcomm_srv_ap smt_qualcomm_srv_ap"
-export BENCHSUITES="smt_qualcomm_srv_ap"
 
 # SIMULATION 
 export SIM_WARMUP_INSTR=50000000

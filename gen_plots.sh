@@ -41,7 +41,6 @@ elif [ "${experiemnt}" == "AE"]; then
 	echo "Generating AE plots..."
 	python3 ${ROOT_DIR}/scripts/gen_plots.py --figure fig_08 
 	python3 ${ROOT_DIR}/scripts/gen_plots.py --figure fig_09 
-	python3 ${ROOT_DIR}/scripts/gen_plots.py --figure fig_11 
 elif [ "${experiments}" == "all" ]; then
 	echo "Parsing data..."
 	${ROOT_DIR}/scripts/parse_data.sh exp_conf/fig_01.sh

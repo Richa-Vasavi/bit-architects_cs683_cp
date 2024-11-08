@@ -28,7 +28,6 @@ elif [ "${experiment_batch}" = "fig_13" ]; then
 elif [ "${experiemnt}" == "AE"]; then
 	echo "Running AE experiment_batchs..."
 	${ROOT_DIR}/scripts/submit_experiment_batch.sh ${ROOT_DIR}/exp_conf/fig_08.sh
-	${ROOT_DIR}/scripts/submit_experiment_batch.sh ${ROOT_DIR}/exp_conf/fig_11.sh
 elif [ "${experiments}" == "all" ]; then
 	echo "Running all experiments..."
 	${ROOT_DIR}/scripts/submit_experiment_batch.sh ${ROOT_DIR}/exp_conf/fig_01.sh

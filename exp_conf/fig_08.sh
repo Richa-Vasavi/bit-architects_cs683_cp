@@ -33,7 +33,6 @@ fig08_fdip_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16
 export ROOT_DIR=`pwd`
 export EXP_NAME=""
 export BENCHSUITES="selected_qualcomm_srv_ap smt_qualcomm_srv_ap"
-export BENCHSUITES="smt_qualcomm_srv_ap"
 
 # SIMULATION 
 export SIM_WARMUP_INSTR=50000000
