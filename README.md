@@ -35,7 +35,7 @@ To download and deploy the necessary application traces run the following script
 
 	./dowload_traces.sh qualcomm_srv
 
-Optinally to download the SPEC CPU 2006/2017 workloads run the following:
+Optionally to download the SPEC CPU 2006/2017 workloads run the following:
 
 	./download_traces.sh spec
 
@@ -62,7 +62,18 @@ If only a specific figure is needed, then run the scripts providing an argument 
   
   	./submit_expriments.sh fig_08
 
-To run all experiments just run ./submit_expriments.sh without any arguments.  This is not recommended as the number of jobs generated will probably exceed SLURM's queue limit.
+To run all experiments just run: 
+
+	./submit_experiments.sh all
+
+This is not recommended as the number of jobs generated will probably exceed SLURM's queue limit.
+
+Alternatively, the batched versions can be used to groups jobs together and submit less total jobs.  This is useful when SLURM's queue limit is reached.  To use the batched version, run:
+
+	./submit_experiments_batch.sh AE
+ 
+This scripts takes the same arguments with ./submit_experiments.sh
+
 
 ## Parsing and plotting data
 
@@ -80,6 +91,7 @@ If run without any arguments, all plots will be genrated.  Note however that thi
 ## Examining the results
 
 The resulting figures will be placed in the figures directory, if the default directory tree has been used.  The directory figurs_PUBLISHED contains pre-generatad figures with the expected results that can be used for comparison.
+
 
 ## Running custom experiments
 
@@ -100,7 +112,7 @@ To create you own set of experiments copy one of the bash scripts in exp_conf/fi
 the benchmark suite you want to use (e.g. BENCHSUITES=mybenchmarks).  The variable CONFIGURATION_TAGS needs to also be edited. This variable should hold a list of the experiments to run.  The experiment names are 
 parsed by ./scripts/gen_champsim_conf.py to modify the baseline configuration.  The naming conversion follows the scheme:
 
-	cache_type-r.rep_pol-s.num_sets-w.num_ways}.
+	cache_type-r.rep_pol-s.num_sets-w.num_ways
  
 For example if you want to just enable iTP and xPTP, and change the size of the LLC, you can use:
 
