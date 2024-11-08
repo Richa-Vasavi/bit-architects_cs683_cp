@@ -39,8 +39,10 @@ void CACHE::initialize_replacement()
 	}
 
 	if (getenv("TLB_UPPER_STRESS_THRESHOLD")) {
-		::TLB_UPPER_STRESS_THRESHOLD = std::stoi(getenv("TLB_UPPER_STRESS_THRESHOLD"));
-		//::TLB_STRESS_THRESHOLD = 0;
+		if (this->force_mon)
+			::TLB_UPPER_STRESS_THRESHOLD = std::stoi(getenv("TLB_UPPER_STRESS_THRESHOLD"));
+		else
+			::TLB_UPPER_STRESS_THRESHOLD = 9;
 	}
 
 	if (getenv("MIN_EVICTION_POSITION")) {

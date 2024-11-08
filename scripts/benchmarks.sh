@@ -1,8 +1,8 @@
 
-TRACE_DIR="/scratch/nas/3/dchasapi/champsim_traces"
+source ./env.sh
 
-source ./scripts/spec_cpu_workloads.sh
-source ./scripts/qualcomm_srv_workloads.sh
+source ${ROOT_DIR}/scripts/spec_cpu_workloads.sh
+source ${ROOT_DIR}/scripts/qualcomm_srv_workloads.sh
 
 if [ "${BENCHSUITE}" == "qualcomm_srv_ap"  ]; then
 			TRACES="${QUALCOMM_SRV_AP}"
@@ -17,7 +17,7 @@ elif [ "${BENCHSUITE}" == "spec" ]; then
 			TRACES="${SPEC_CPU_2006} ${SPEC_CPU_2017}"
 			TRACES_PATH="${SPEC_CPU_DIR}"
 else
-			TRACES=smt_srv12_ap_srv99_ap_1024i.champsimtrace.xz
+			TRACES=srv12_ap.champsimtrace.xz
 			TRACES_PATH="${QUALCOMM_SRV_AP_DIR}"
 fi
 

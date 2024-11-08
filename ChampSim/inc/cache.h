@@ -303,6 +303,7 @@ public:
 #if defined FORCE_HIT || defined FORCE_PTE_HIT || defined MULTIPLE_PAGE_SIZE
 	std::map<uint64_t, BLOCK> cached_PTEs;
 	bool force_hit = false; 
+	bool force_mon = false;
 	VirtualMemory	*vmem;
 #endif
 
@@ -313,13 +314,13 @@ public:
         bool pref_load, bool wq_full_addr, bool va_pref, unsigned pref_mask, 
 				NonTranslatingQueues& queue_set, MemoryRequestConsumer* ll,
         std::bitset<NUM_PREFETCH_MODULES> pref, std::bitset<NUM_REPLACEMENT_MODULES> repl,
-			  bool _force_hit, VirtualMemory* _vmem
+			  bool _force_hit, bool _force_mon, VirtualMemory* _vmem
 				)
       : champsim::operable(freq_scale), MemoryRequestProducer(ll), NAME(v1), NUM_SET(v2), NUM_WAY(v3), 
 				MSHR_SIZE(v8), FILL_LATENCY(fill_lat), OFFSET_BITS(offset_bits), MAX_TAG(max_tag), 
 				MAX_FILL(max_fill), prefetch_as_load(pref_load), match_offset_bits(wq_full_addr), 
 				virtual_prefetch(va_pref), pref_activate_mask(pref_mask), queues(queue_set), repl_type(repl), 
-				pref_type(pref), force_hit(_force_hit), vmem(_vmem)
+				pref_type(pref), force_hit(_force_hit), force_mon(_force_mon), vmem(_vmem)
 #else
   CACHE(std::string v1, double freq_scale, uint32_t v2, uint32_t v3, uint32_t v8, uint32_t fill_lat, long int max_tag, long int max_fill, unsigned offset_bits,
         bool pref_load, bool wq_full_addr, bool va_pref, unsigned pref_mask, NonTranslatingQueues& queue_set, MemoryRequestConsumer* ll,

@@ -20,12 +20,11 @@ for trace in $TRACES; do
 	echo "${bench}${DESCR_TAG}"
 
 echo "#!/bin/bash
-#SBATCH -N 1
 #SBATCH -o ${DUMP_DIR}/${bench}${DESCR_TAG}_run.out 
 #SBATCH -J chmpS_${bench}${DESCR_TAG}_run
-#SBATCH -q all 
-##SBATCH -q large
-#SBATCH --time=04:00:00
+#SBATCH -A bsc18
+#SBATCH --qos=gp_bsccs
+#SBATCH --time=01:00:00
 
 export PTP_EXTRA_STATS_FILE=${HOME}/dump/${bench}${DESCR_TAG}_access_rate.csv
 export RECALL_DIST_FILENAME_PREFIX=${HOME}/dump/${bench}${DESCR_TAG}_recall_dist
@@ -33,10 +32,9 @@ export INSTR_PAGE_DIST_FILENAME=${TRACE_EXT_DIR}/${bench}${INSTR_PAGE_DIST_FILEN
 export DATA_PAGE_DIST_FILENAME=${TRACE_EXT_DIR}/${bench}${DATA_PAGE_DIST_FILENAME_SUFFIX}.pdst
 export PAGE_ADDRESS_STATS_FILENAME_PREFIX=${HOME}/dump/${bench}${DESCR_TAG}_page_access_stats
 
-gdb -batch -ex "r" -ex "bt" -ex "q" --args \
-	${ROOT_DIR}/bin/${BIN} 	--warmup_instructions ${SIM_WARMUP_INSTR} \
-								--simulation_instructions ${SIM_RUN_INSTR} \
-								${TRACES_DIR}/$trace
+${CHAMPSIM_DIR}/bin/${BIN} 	--warmup_instructions ${SIM_WARMUP_INSTR} \
+												--simulation_instructions ${SIM_RUN_INSTR} \
+												${TRACES_DIR}/$trace
 
 " >	simr_${bench}_job.run
 		sbatch simr_${bench}_job.run

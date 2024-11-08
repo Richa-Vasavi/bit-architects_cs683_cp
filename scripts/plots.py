@@ -401,7 +401,7 @@ def plot_ipc_improvement_single(	input_baseline_files, input_data_files, input_t
 		fig, axes = plt.subplots(	nrows=1, ncols=1, 
 									figsize=(plot_width, plot_height))
 
-		df.to_csv("data.csv")
+		#df.to_csv("data.csv")
 
 		#matplotlib.rc('axes', edgecolor='black')
 		# compute means

@@ -18,16 +18,10 @@ for benchsuite in ${BENCHSUITES}; do
 		echo $conf
 		echo ${base_conf}
 
-		smt="false"
-		if [[ ${benchsuite} == smt_* ]]; then
-			smt="true"
-			base_conf=${base_conf}_smt
-		fi
-
 		if ${BUILD_CHAMPSIM}; then
 
 			echo "Generating ${ROOT_DIR}/sim_conf/champsim_${base_conf}.json..."
-			${ROOT_DIR}/scripts/gen_champsim_conf.py ${CHAMPSIM_DIR}/champsim_fdip_baseline.json ${base_conf} ${smt}
+			${ROOT_DIR}/scripts/gen_champsim_conf.py ${CHAMPSIM_DIR}/champsim_fdip_baseline.json ${base_conf}
 			cd ${CHAMPSIM_DIR}
 			${CHAMPSIM_DIR}/config.sh ${ROOT_DIR}/sim_conf/champsim_${base_conf}.json
 			make
@@ -62,8 +56,8 @@ for benchsuite in ${BENCHSUITES}; do
 				curr_conf=$(echo ${curr_conf} | sed "s/{$conf_key}/$conf_value/g")
 			done
 
-			echo 	./scripts/submit_jobs.sh ${benchsuite} champsim_${base_conf} _${curr_conf}
-			./scripts/submit_jobs.sh ${benchsuite} champsim_${base_conf} _${curr_conf}
+			echo 	./scripts/submit_job.sh ${benchsuite} champsim_${base_conf} ${curr_conf}
+			./scripts/submit_job.sh ${benchsuite} champsim_${base_conf} ${curr_conf}
 
 			export_confs="${export_confs} ${curr_conf}"
 		done

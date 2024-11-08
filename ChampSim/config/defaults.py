@@ -34,7 +34,8 @@ default_l1i  = {
         'prefetch_activate': 'LOAD,PREFETCH',
         'prefetcher': 'no_instr',
         'replacement': 'lru',
-				'force_hit': False
+		'force_hit': False,
+        'force_mon': False
         }
 
 default_l1d  = {
@@ -55,7 +56,8 @@ default_l1d  = {
         'prefetch_activate': 'LOAD,PREFETCH',
         'prefetcher': 'no',
         'replacement': 'lru',
-				'force_hit': False
+		'force_hit': False,
+        'force_mon': False
         }
 
 default_l2c  = {
@@ -76,7 +78,8 @@ default_l2c  = {
         'prefetch_activate': 'LOAD,PREFETCH',
         'prefetcher': 'no',
         'replacement': 'lru',
-				'force_hit': False
+		'force_hit': False,
+        'force_mon': False
         }
 
 default_itlb = {
@@ -97,7 +100,8 @@ default_itlb = {
         'prefetch_activate': 'LOAD,PREFETCH',
         'prefetcher': 'no',
         'replacement': 'lru',
-				'force_hit': False
+		'force_hit': False,
+        'force_mon': False
         }
 
 default_dtlb = {
@@ -118,7 +122,8 @@ default_dtlb = {
         'prefetch_activate': 'LOAD,PREFETCH',
         'prefetcher': 'no',
         'replacement': 'lru',
-				'force_hit': False
+		'force_hit': False,
+        'force_mon': False
         }
 
 default_stlb = {
@@ -139,7 +144,8 @@ default_stlb = {
         'prefetch_activate': 'LOAD,PREFETCH',
         'prefetcher': 'no',
         'replacement': 'lru',
-				'force_hit': False
+		'force_hit': False,
+        'force_mon': False
         }
 
 default_llc  = {
@@ -152,7 +158,8 @@ default_llc  = {
         'prefetcher': 'no',
         'replacement': 'lru',
         'lower_level': 'DRAM',
-				'force_hit': False
+		'force_hit': False,
+        'force_mon': False
         }
 
 default_ptw = {

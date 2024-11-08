@@ -153,14 +153,13 @@ def gen_plot(figure_name):
 	if (figure_name == "fig_04"):
 		
 		input_data_files =	[	
-								"./stats/" + "selected_qualcomm_srv_ap" + "_fig04_fdip_baseline_llc-s.1537-w.16.csv",
-								"./stats/" + "selected_qualcomm_srv_ap" + "_fig04_fdip_probi.80_stlb-r.probi_llc-s.1537-w.16.csv"
+								"./stats/" + "selected_qualcomm_srv_ap" + "_fig03_fdip_baseline_llc-s.1537-w.16.csv",
+								"./stats/" + "selected_qualcomm_srv_ap" + "_fig03_fdip_probi.80_stlb-r.probi_llc-s.1537-w.16.csv"
 							]
 	
 		plot_conf = { 'xlabel':  'smth', 'plot_type': 'barplot'}
 		plot_conf['plot_width'] = 6.2
 		plot_conf['plot_height'] = 2
-		#cache_types = [ 'cpu0_L1D', 'cpu0_L2C', 'LLC' ]
 		cache_types = [ 'cpu0_L2C', 'LLC' ]
 		input_tags = [ 'LRU', 'KiT' ]
 		op_type = "TOTAL"
@@ -176,7 +175,6 @@ def gen_plot(figure_name):
 		for benchsuite in benchsuites:
 	
 			input_baseline_files =	[ "./stats/" + benchsuite  + "_fig08_fdip_baseline_llc-s.1537-w.16.csv" ]
-									#"./stats/" + benchsuite + "_dev_stlb-itp:0:2:12.csv",
 	
 			input_data_files = [	"./stats/" + benchsuite + "_fig08_fdip_l2c-r.tdrrip_llc-s.1537-w.16.csv",	
 									"./stats/" + benchsuite + "_fig08_fdip_l2c-r.ptp_llc-s.1537-w.16.csv",	
@@ -320,10 +318,10 @@ def gen_plot(figure_name):
 			input_data_files = [
 										"./stats/" + benchsuite + "_fig11_fdip_stlb-r.itp_llc-s.1537-w.16.csv",
 										"./stats/" + benchsuite + "_fig11_fdip_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16.csv",
-										"./stats/" + benchsuite + "_fig11_fig11_fdip_stlb-r.itp_llc-r.ship-s.1537-w.16.csv",
+										"./stats/" + benchsuite + "_fig11_fdip_stlb-r.itp_llc-r.ship-s.1537-w.16.csv",
 										"./stats/" + benchsuite + "_fig11_fdip_stlb-r.itp_l2c-r.xptp_llc-r.ship-s.1537-w.16.csv",
 										"./stats/" + benchsuite + "_fig11_fdip_stlb-r.itp_llc-r.mockingjay-s.1537-w.16.csv",
-										"./stats/" + benchsuite + "_fig11_fdip_dyn-1-2.5_stlb-r.itp_l2c-r.xptp_llc-r.mockingjay-s.1537-w.16.csv"
+										"./stats/" + benchsuite + "_fig11_fdip_stlb-r.itp_l2c-r.xptp_llc-r.mockingjay-s.1537-w.16.csv"
 									]
 	
 	
@@ -343,129 +341,31 @@ def gen_plot(figure_name):
 																		l2c_tags, llc_tags, cache_type, op_type, plot_conf, 
 																		output_file)
 	
-	
+
 	if (figure_name == "fig_12"):
-		
-	
-		input_smt1_baseline_files =	["./stats/selected_qualcomm_srv_ap_fig12_fdip_baseline_llc-s.1537-w.16.csv",
-									 "./stats/selected_qualcomm_srv_ap_fig12_fdip_mlpg-i.10-d.10_baseline_llc-s.1537-w.16.csv",
-									 "./stats/selected_qualcomm_srv_ap_fig12_fdip_mlpg-i.50-d.50_baseline_llc-s.1537-w.16.csv",
-									 "./stats/selected_qualcomm_srv_ap_fig12_fdip_mlpg-i.100-d.100_baseline_llc-s.1537-w.16.csv",
-									 "./stats/selected_qualcomm_srv_ap_fig12_fdip_baseline_llc-s.1537-w.16.csv",
-									 "./stats/selected_qualcomm_srv_ap_fig12_fdip_mlpg-i.10-d.10_baseline_llc-s.1537-w.16.csv",
-									 "./stats/selected_qualcomm_srv_ap_fig12_fdip_mlpg-i.50-d.50_baseline_llc-s.1537-w.16.csv",
-									 "./stats/selected_qualcomm_srv_ap_fig12_fdip_mlpg-i.100-d.100_baseline_llc-s.1537-w.16.csv",
-									 "./stats/selected_qualcomm_srv_ap_fig12_fdip_baseline_llc-s.1537-w.16.csv",
-									 "./stats/selected_qualcomm_srv_ap_fig12_fdip_mlpg-i.10-d.10_baseline_llc-s.1537-w.16.csv",
-									 "./stats/selected_qualcomm_srv_ap_fig12_fdip_mlpg-i.50-d.50_baseline_llc-s.1537-w.16.csv",
-									 "./stats/selected_qualcomm_srv_ap_fig12_fdip_mlpg-i.100-d.100_baseline_llc-s.1537-w.16.csv",
-									 "./stats/selected_qualcomm_srv_ap_fig12_fdip_baseline_llc-s.1537-w.16.csv",
-									 "./stats/selected_qualcomm_srv_ap_fig12_fdip_mlpg-i.10-d.10_baseline_llc-s.1537-w.16.csv",
-									 "./stats/selected_qualcomm_srv_ap_fig12_fdip_mlpg-i.50-d.50_baseline_llc-s.1537-w.16.csv",
-									 "./stats/selected_qualcomm_srv_ap_fig12_fdip_mlpg-i.100-d.100_baseline_llc-s.1537-w.16.csv"]
-	
-	
-		input_smt1_data_files = [
-			"./stats/selected_qualcomm_srv_ap_fig12_fdip_l2c-r.tdrrip_llc-s.1537-w.16.csv",
-			"./stats/selected_qualcomm_srv_ap_fig12_fdip_mlpg-i.10-d.10_l2c-r.tdrrip_llc-s.1537-w.16.csv",
-			"./stats/selected_qualcomm_srv_ap_fig12_fdip_mlpg-i.50-d.50_l2c-r.tdrrip_llc-s.1537-w.16.csv",
-			"./stats/selected_qualcomm_srv_ap_fig12_fdip_mlpg-i.100-d.100_l2c-r.tdrrip_llc-s.1537-w.16.csv",
-			"./stats/selected_qualcomm_srv_ap_fig12_fdip_l2c-r.ptp_llc-s.1537-w.16.csv",
-			"./stats/selected_qualcomm_srv_ap_fig12_fdip_mlpg-i.10-d.10_l2c-r.ptp_llc-s.1537-w.16.csv",
-			"./stats/selected_qualcomm_srv_ap_fig12_fdip_mlpg-i.50-d.50_l2c-r.ptp_llc-s.1537-w.16.csv",
-			"./stats/selected_qualcomm_srv_ap_fig12_fdip_mlpg-i.100-d.100_l2c-r.ptp_llc-s.1537-w.16.csv",
-			"./stats/selected_qualcomm_srv_ap_fig12_fdip_stlb-r.chirp_llc-s.1537-w.16.csv",
-			"./stats/selected_qualcomm_srv_ap_fig12_fdip_mlpg-i.10-d.10_stlb-r.chirp_llc-s.1537-w.16.csv",
-			"./stats/selected_qualcomm_srv_ap_fig12_fdip_mlpg-i.50-d.50_stlb-r.chirp_llc-s.1537-w.16.csv",
-			"./stats/selected_qualcomm_srv_ap_fig12_fdip_mlpg-i.100-d.100_stlb-r.chirp_llc-s.1537-w.16.csv",
-			"./stats/selected_qualcomm_srv_ap_fig12_fdip_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16.csv",
-			"./stats/selected_qualcomm_srv_ap_fig12_fdip_mlpg-i.10-d.10_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16.csv",
-			"./stats/selected_qualcomm_srv_ap_fig12_fdip_mlpg-i.50-d.50_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16.csv",
-			"./stats/selected_qualcomm_srv_ap_fig12_fdip_mlpg-i.100-d.100_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16.csv"]
-	
-		input_smt2_baseline_files =	["./stats/smt_qualcomm_srv_ap_fig12_fdip_baseline_llc-s.1537-w.16.csv",
-									 "./stats/smt_qualcomm_srv_ap_fig12_fdip_mlpg-i.10-d.10_baseline_llc-s.1537-w.16.csv",
-									 "./stats/smt_qualcomm_srv_ap_fig12_fdip_mlpg-i.50-d.50_baseline_llc-s.1537-w.16.csv",
-									 "./stats/smt_qualcomm_srv_ap_fig12_fdip_mlpg-i.100-d.100_baseline_llc-s.1537-w.16.csv",
-									 "./stats/smt_qualcomm_srv_ap_fig12_fdip_baseline_llc-s.1537-w.16.csv",
-									 "./stats/smt_qualcomm_srv_ap_fig12_fdip_mlpg-i.10-d.10_baseline_llc-s.1537-w.16.csv",
-									 "./stats/smt_qualcomm_srv_ap_fig12_fdip_mlpg-i.50-d.50_baseline_llc-s.1537-w.16.csv",
-									 "./stats/smt_qualcomm_srv_ap_fig12_fdip_mlpg-i.100-d.100_baseline_llc-s.1537-w.16.csv",
-									 "./stats/smt_qualcomm_srv_ap_fig12_fdip_baseline_llc-s.1537-w.16.csv",
-									 "./stats/smt_qualcomm_srv_ap_fig12_fdip_mlpg-i.10-d.10_baseline_llc-s.1537-w.16.csv",
-									 "./stats/smt_qualcomm_srv_ap_fig12_fdip_mlpg-i.50-d.50_baseline_llc-s.1537-w.16.csv",
-									 "./stats/smt_qualcomm_srv_ap_fig12_fdip_mlpg-i.100-d.100_baseline_llc-s.1537-w.16.csv",
-									 "./stats/smt_qualcomm_srv_ap_fig12_fdip_baseline_llc-s.1537-w.16.csv",
-									 "./stats/smt_qualcomm_srv_ap_fig12_fdip_mlpg-i.10-d.10_baseline_llc-s.1537-w.16.csv",
-									 "./stats/smt_qualcomm_srv_ap_fig12_fdip_mlpg-i.50-d.50_baseline_llc-s.1537-w.16.csv",
-									 "./stats/smt_qualcomm_srv_ap_fig12_fdip_mlpg-i.100-d.100_baseline_llc-s.1537-w.16.csv"]
-	
-	
-		input_smt2_data_files = [
-			"./stats/smt_qualcomm_srv_ap_fig12_fdip_l2c-r.tdrrip_llc-s.1537-w.16.csv",
-			"./stats/smt_qualcomm_srv_ap_fig12_fdip_mlpg-i.10-d.10_l2c-r.tdrrip_llc-s.1537-w.16.csv",
-			"./stats/smt_qualcomm_srv_ap_fig12_fdip_mlpg-i.50-d.50_l2c-r.tdrrip_llc-s.1537-w.16.csv",
-			"./stats/smt_qualcomm_srv_ap_fig12_fdip_mlpg-i.100-d.100_l2c-r.tdrrip_llc-s.1537-w.16.csv",
-			"./stats/smt_qualcomm_srv_ap_fig12_fdip_l2c-r.ptp_llc-s.1537-w.16.csv",
-			"./stats/smt_qualcomm_srv_ap_fig12_fdip_mlpg-i.10-d.10_l2c-r.ptp_llc-s.1537-w.16.csv",
-			"./stats/smt_qualcomm_srv_ap_fig12_fdip_mlpg-i.50-d.50_l2c-r.ptp_llc-s.1537-w.16.csv",
-			"./stats/smt_qualcomm_srv_ap_fig12_fdip_mlpg-i.100-d.100_l2c-r.ptp_llc-s.1537-w.16.csv",
-			"./stats/smt_qualcomm_srv_ap_fig12_fdip_stlb-r.chirp_llc-s.1537-w.16.csv",
-			"./stats/smt_qualcomm_srv_ap_fig12_fdip_mlpg-i.10-d.10_stlb-r.chirp_llc-s.1537-w.16.csv",
-			"./stats/smt_qualcomm_srv_ap_fig12_fdip_mlpg-i.50-d.50_stlb-r.chirp_llc-s.1537-w.16.csv",
-			"./stats/smt_qualcomm_srv_ap_fig12_fdip_mlpg-i.100-d.100_stlb-r.chirp_llc-s.1537-w.16.csv",
-			"./stats/smt_qualcomm_srv_ap_fig12_fdip_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16.csv",
-			"./stats/smt_qualcomm_srv_ap_fig12_fdip_mlpg-i.10-d.10_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16.csv",
-			"./stats/smt_qualcomm_srv_ap_fig12_fdip_mlpg-i.50-d.50_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16.csv",
-			"./stats/smt_qualcomm_srv_ap_fig12_fdip_mlpg-i.100-d.100_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16.csv"]
-	
-	
-	
-	
-		input_tags1 = [ "0%", "10%", "50%", "100%" ]
-		input_tags2 = [ "TDRRIP", "PTP", "CHiRP", "iTP+xPTP" ]
-	
-		plot_conf = { 'xlabel':  'dummy', 'plot_type': 'violin'}
-		plot_conf['plot_width'] = 4
-		plot_conf['plot_height'] = 1	
-	
-		cache_type = "cpu0_STLB"
-		op_type = "TOTAL"
-	
-		output_file = FIGURES_DIR + "/figures/fig12_2mbi_comparison_ipc.pdf"
-		print(FIGURES_DIR + "/figures/fig12_2mbi_comparison_ipc.pdf")
-		plots.plot_mlt_instr_pages(	input_smt1_baseline_files, 
-									input_smt2_baseline_files, 
-									input_smt1_data_files, input_smt2_data_files, 
-									input_tags1, input_tags2, cache_type, op_type, 
-									plot_conf, output_file)
-	
-	
-	
-	if (figure_name == "fig_new"):
 		benchsuites = [ "selected_qualcomm_srv_ap", "smt_qualcomm_srv_ap" ]
 		for benchsuite in benchsuites:
 	
 			input_baseline_files =	[ 
-																"./stats/" + benchsuite + "_fdip_itlb-s.256-w.4_llc-s.1537-w.16.csv",
-																"./stats/" + benchsuite + "_fdip_itlb-s.256-w.4_llc-s.1537-w.16.csv",
-																"./stats/" + benchsuite + "_fdip_itlb-s.128-w.4_llc-s.1537-w.16.csv",
-																"./stats/" + benchsuite + "_fdip_itlb-s.128-w.4_llc-s.1537-w.16.csv",
-																"./stats/" + benchsuite + "_fdip_itlb-s.32-w.4_llc-s.1537-w.16.csv",
-																"./stats/" + benchsuite + "_fdip_itlb-s.32-w.4_llc-s.1537-w.16.csv",
-																"./stats/" + benchsuite + "_fdip_itlb-s.16-w.4_llc-s.1537-w.16.csv",
-																"./stats/" + benchsuite + "_fdip_itlb-s.16-w.4_llc-s.1537-w.16.csv"
+																"./stats/" + benchsuite + "_fig12_fdip_itlb-s.256-w.4_llc-s.1537-w.16.csv",
+																"./stats/" + benchsuite + "_fig12_fdip_itlb-s.256-w.4_llc-s.1537-w.16.csv",
+																"./stats/" + benchsuite + "_fig12_fdip_itlb-s.128-w.4_llc-s.1537-w.16.csv",
+																"./stats/" + benchsuite + "_fig12_fdip_itlb-s.128-w.4_llc-s.1537-w.16.csv",
+																"./stats/" + benchsuite + "_fig12_fdip_itlb-s.32-w.4_llc-s.1537-w.16.csv",
+																"./stats/" + benchsuite + "_fig12_fdip_itlb-s.32-w.4_llc-s.1537-w.16.csv",
+																"./stats/" + benchsuite + "_fig12_fdip_itlb-s.16-w.4_llc-s.1537-w.16.csv",
+																"./stats/" + benchsuite + "_fig12_fdip_itlb-s.16-w.4_llc-s.1537-w.16.csv"
 															]
 	
 			input_data_files = [ 
-													"./stats/" + benchsuite  + "_fdip_itlb-s.256-w.4_stlb-r.itp_llc-s.1537-w.16.csv",
-													"./stats/" + benchsuite  + "_fdip_itlb-s.256-w.4_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16.csv",
-													"./stats/" + benchsuite  + "_fdip_itlb-s.128-w.4_stlb-r.itp_llc-s.1537-w.16.csv",
-													"./stats/" + benchsuite  + "_fdip_itlb-s.128-w.4_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16.csv",
-													"./stats/" + benchsuite  + "_fdip_itlb-s.32-w.4_stlb-r.itp_llc-s.1537-w.16.csv",
-													"./stats/" + benchsuite  + "_fdip_itlb-s.32-w.4_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16.csv",
-													"./stats/" + benchsuite  + "_fdip_itlb-s.16-w.4_stlb-r.itp_llc-s.1537-w.16.csv",
-													"./stats/" + benchsuite  + "_fdip_itlb-s.16-w.4_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16.csv"
+													"./stats/" + benchsuite  + "_fig12_fdip_itlb-s.256-w.4_stlb-r.itp_llc-s.1537-w.16.csv",
+													"./stats/" + benchsuite  + "_fig12_fdip_itlb-s.256-w.4_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16.csv",
+													"./stats/" + benchsuite  + "_fig12_fdip_itlb-s.128-w.4_stlb-r.itp_llc-s.1537-w.16.csv",
+													"./stats/" + benchsuite  + "_fig12_fdip_itlb-s.128-w.4_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16.csv",
+													"./stats/" + benchsuite  + "_fig12_fdip_itlb-s.32-w.4_stlb-r.itp_llc-s.1537-w.16.csv",
+													"./stats/" + benchsuite  + "_fig12_fdip_itlb-s.32-w.4_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16.csv",
+													"./stats/" + benchsuite  + "_fig12_fdip_itlb-s.16-w.4_stlb-r.itp_llc-s.1537-w.16.csv",
+													"./stats/" + benchsuite  + "_fig12_fdip_itlb-s.16-w.4_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16.csv"
 												]
 	
 	
@@ -492,12 +392,107 @@ def gen_plot(figure_name):
 			cache_type = "cpu0_STLB"
 			op_type = "TOTAL"
 			stat_name = "MISS_CYCLES"
-			output_file = FIGURES_DIR + "/fig_itlb_itp_size_sensitivity_analysis_" + benchsuite + ".pdf"
-			print(FIGURES_DIR + "/fig_itlb_itp_size_sensitivity_analysis_" + benchsuite + ".pdf")
+			output_file = FIGURES_DIR + "/fig12_itlb_itp_size_sensitivity_analysis_" + benchsuite + ".pdf"
+			print(FIGURES_DIR + "/fig12_itlb_itp_size_sensitivity_analysis_" + benchsuite + ".pdf")
 			plots.plot_itp_itlb_size_sensitivity(	input_baseline_files, input_data_files, replacement_tags, itlb_size_tags, 
 																						cache_type, op_type, stat_name, plot_conf, output_file)
 		
+
+	if (figure_name == "fig_13"):
 	
+		input_smt1_baseline_files =	["./stats/selected_qualcomm_srv_ap_fig13_fdip_baseline_llc-s.1537-w.16.csv",
+									 "./stats/selected_qualcomm_srv_ap_fig13_fdip_mlpg-i.10-d.10_baseline_llc-s.1537-w.16.csv",
+									 "./stats/selected_qualcomm_srv_ap_fig13_fdip_mlpg-i.50-d.50_baseline_llc-s.1537-w.16.csv",
+									 "./stats/selected_qualcomm_srv_ap_fig13_fdip_mlpg-i.100-d.100_baseline_llc-s.1537-w.16.csv",
+									 "./stats/selected_qualcomm_srv_ap_fig13_fdip_baseline_llc-s.1537-w.16.csv",
+									 "./stats/selected_qualcomm_srv_ap_fig13_fdip_mlpg-i.10-d.10_baseline_llc-s.1537-w.16.csv",
+									 "./stats/selected_qualcomm_srv_ap_fig13_fdip_mlpg-i.50-d.50_baseline_llc-s.1537-w.16.csv",
+									 "./stats/selected_qualcomm_srv_ap_fig13_fdip_mlpg-i.100-d.100_baseline_llc-s.1537-w.16.csv",
+									 "./stats/selected_qualcomm_srv_ap_fig13_fdip_baseline_llc-s.1537-w.16.csv",
+									 "./stats/selected_qualcomm_srv_ap_fig13_fdip_mlpg-i.10-d.10_baseline_llc-s.1537-w.16.csv",
+									 "./stats/selected_qualcomm_srv_ap_fig13_fdip_mlpg-i.50-d.50_baseline_llc-s.1537-w.16.csv",
+									 "./stats/selected_qualcomm_srv_ap_fig13_fdip_mlpg-i.100-d.100_baseline_llc-s.1537-w.16.csv",
+									 "./stats/selected_qualcomm_srv_ap_fig13_fdip_baseline_llc-s.1537-w.16.csv",
+									 "./stats/selected_qualcomm_srv_ap_fig13_fdip_mlpg-i.10-d.10_baseline_llc-s.1537-w.16.csv",
+									 "./stats/selected_qualcomm_srv_ap_fig13_fdip_mlpg-i.50-d.50_baseline_llc-s.1537-w.16.csv",
+									 "./stats/selected_qualcomm_srv_ap_fig13_fdip_mlpg-i.100-d.100_baseline_llc-s.1537-w.16.csv"]
+	
+	
+		input_smt1_data_files = [
+			"./stats/selected_qualcomm_srv_ap_fig13_fdip_l2c-r.tdrrip_llc-s.1537-w.16.csv",
+			"./stats/selected_qualcomm_srv_ap_fig13_fdip_mlpg-i.10-d.10_l2c-r.tdrrip_llc-s.1537-w.16.csv",
+			"./stats/selected_qualcomm_srv_ap_fig13_fdip_mlpg-i.50-d.50_l2c-r.tdrrip_llc-s.1537-w.16.csv",
+			"./stats/selected_qualcomm_srv_ap_fig13_fdip_mlpg-i.100-d.100_l2c-r.tdrrip_llc-s.1537-w.16.csv",
+			"./stats/selected_qualcomm_srv_ap_fig13_fdip_l2c-r.ptp_llc-s.1537-w.16.csv",
+			"./stats/selected_qualcomm_srv_ap_fig13_fdip_mlpg-i.10-d.10_l2c-r.ptp_llc-s.1537-w.16.csv",
+			"./stats/selected_qualcomm_srv_ap_fig13_fdip_mlpg-i.50-d.50_l2c-r.ptp_llc-s.1537-w.16.csv",
+			"./stats/selected_qualcomm_srv_ap_fig13_fdip_mlpg-i.100-d.100_l2c-r.ptp_llc-s.1537-w.16.csv",
+			"./stats/selected_qualcomm_srv_ap_fig13_fdip_stlb-r.chirp_llc-s.1537-w.16.csv",
+			"./stats/selected_qualcomm_srv_ap_fig13_fdip_mlpg-i.10-d.10_stlb-r.chirp_llc-s.1537-w.16.csv",
+			"./stats/selected_qualcomm_srv_ap_fig13_fdip_mlpg-i.50-d.50_stlb-r.chirp_llc-s.1537-w.16.csv",
+			"./stats/selected_qualcomm_srv_ap_fig13_fdip_mlpg-i.100-d.100_stlb-r.chirp_llc-s.1537-w.16.csv",
+			"./stats/selected_qualcomm_srv_ap_fig13_fdip_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16.csv",
+			"./stats/selected_qualcomm_srv_ap_fig13_fdip_mlpg-i.10-d.10_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16.csv",
+			"./stats/selected_qualcomm_srv_ap_fig13_fdip_mlpg-i.50-d.50_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16.csv",
+			"./stats/selected_qualcomm_srv_ap_fig13_fdip_mlpg-i.100-d.100_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16.csv"]
+	
+		input_smt2_baseline_files =	["./stats/smt_qualcomm_srv_ap_fig13_fdip_baseline_llc-s.1537-w.16.csv",
+									 "./stats/smt_qualcomm_srv_ap_fig13_fdip_mlpg-i.10-d.10_baseline_llc-s.1537-w.16.csv",
+									 "./stats/smt_qualcomm_srv_ap_fig13_fdip_mlpg-i.50-d.50_baseline_llc-s.1537-w.16.csv",
+									 "./stats/smt_qualcomm_srv_ap_fig13_fdip_mlpg-i.100-d.100_baseline_llc-s.1537-w.16.csv",
+									 "./stats/smt_qualcomm_srv_ap_fig13_fdip_baseline_llc-s.1537-w.16.csv",
+									 "./stats/smt_qualcomm_srv_ap_fig13_fdip_mlpg-i.10-d.10_baseline_llc-s.1537-w.16.csv",
+									 "./stats/smt_qualcomm_srv_ap_fig13_fdip_mlpg-i.50-d.50_baseline_llc-s.1537-w.16.csv",
+									 "./stats/smt_qualcomm_srv_ap_fig13_fdip_mlpg-i.100-d.100_baseline_llc-s.1537-w.16.csv",
+									 "./stats/smt_qualcomm_srv_ap_fig13_fdip_baseline_llc-s.1537-w.16.csv",
+									 "./stats/smt_qualcomm_srv_ap_fig13_fdip_mlpg-i.10-d.10_baseline_llc-s.1537-w.16.csv",
+									 "./stats/smt_qualcomm_srv_ap_fig13_fdip_mlpg-i.50-d.50_baseline_llc-s.1537-w.16.csv",
+									 "./stats/smt_qualcomm_srv_ap_fig13_fdip_mlpg-i.100-d.100_baseline_llc-s.1537-w.16.csv",
+									 "./stats/smt_qualcomm_srv_ap_fig13_fdip_baseline_llc-s.1537-w.16.csv",
+									 "./stats/smt_qualcomm_srv_ap_fig13_fdip_mlpg-i.10-d.10_baseline_llc-s.1537-w.16.csv",
+									 "./stats/smt_qualcomm_srv_ap_fig13_fdip_mlpg-i.50-d.50_baseline_llc-s.1537-w.16.csv",
+									 "./stats/smt_qualcomm_srv_ap_fig13_fdip_mlpg-i.100-d.100_baseline_llc-s.1537-w.16.csv"]
+	
+	
+		input_smt2_data_files = [
+			"./stats/smt_qualcomm_srv_ap_fig13_fdip_l2c-r.tdrrip_llc-s.1537-w.16.csv",
+			"./stats/smt_qualcomm_srv_ap_fig13_fdip_mlpg-i.10-d.10_l2c-r.tdrrip_llc-s.1537-w.16.csv",
+			"./stats/smt_qualcomm_srv_ap_fig13_fdip_mlpg-i.50-d.50_l2c-r.tdrrip_llc-s.1537-w.16.csv",
+			"./stats/smt_qualcomm_srv_ap_fig13_fdip_mlpg-i.100-d.100_l2c-r.tdrrip_llc-s.1537-w.16.csv",
+			"./stats/smt_qualcomm_srv_ap_fig13_fdip_l2c-r.ptp_llc-s.1537-w.16.csv",
+			"./stats/smt_qualcomm_srv_ap_fig13_fdip_mlpg-i.10-d.10_l2c-r.ptp_llc-s.1537-w.16.csv",
+			"./stats/smt_qualcomm_srv_ap_fig13_fdip_mlpg-i.50-d.50_l2c-r.ptp_llc-s.1537-w.16.csv",
+			"./stats/smt_qualcomm_srv_ap_fig13_fdip_mlpg-i.100-d.100_l2c-r.ptp_llc-s.1537-w.16.csv",
+			"./stats/smt_qualcomm_srv_ap_fig13_fdip_stlb-r.chirp_llc-s.1537-w.16.csv",
+			"./stats/smt_qualcomm_srv_ap_fig13_fdip_mlpg-i.10-d.10_stlb-r.chirp_llc-s.1537-w.16.csv",
+			"./stats/smt_qualcomm_srv_ap_fig13_fdip_mlpg-i.50-d.50_stlb-r.chirp_llc-s.1537-w.16.csv",
+			"./stats/smt_qualcomm_srv_ap_fig13_fdip_mlpg-i.100-d.100_stlb-r.chirp_llc-s.1537-w.16.csv",
+			"./stats/smt_qualcomm_srv_ap_fig13_fdip_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16.csv",
+			"./stats/smt_qualcomm_srv_ap_fig13_fdip_mlpg-i.10-d.10_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16.csv",
+			"./stats/smt_qualcomm_srv_ap_fig13_fdip_mlpg-i.50-d.50_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16.csv",
+			"./stats/smt_qualcomm_srv_ap_fig13_fdip_mlpg-i.100-d.100_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16.csv"]
+	
+	
+	
+	
+		input_tags1 = [ "0%", "10%", "50%", "100%" ]
+		input_tags2 = [ "TDRRIP", "PTP", "CHiRP", "iTP+xPTP" ]
+	
+		plot_conf = { 'xlabel':  'dummy', 'plot_type': 'violin'}
+		plot_conf['plot_width'] = 4
+		plot_conf['plot_height'] = 1	
+	
+		cache_type = "cpu0_STLB"
+		op_type = "TOTAL"
+	
+		output_file = FIGURES_DIR + "/figures/fig13_2mbi_comparison_ipc.pdf"
+		print(FIGURES_DIR + "/figures/fig13_2mbi_comparison_ipc.pdf")
+		plots.plot_mlt_instr_pages(	input_smt1_baseline_files, 
+									input_smt2_baseline_files, 
+									input_smt1_data_files, input_smt2_data_files, 
+									input_tags1, input_tags2, cache_type, op_type, 
+									plot_conf, output_file)
+			
 	
 	if (figure_name == "fig_mpki_breakdown"):
 	

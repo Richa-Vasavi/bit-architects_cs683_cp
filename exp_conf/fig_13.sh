@@ -12,22 +12,23 @@ declare -A VAR_DECLARATIONS=(
 	['MIN_EVICTION_POSITION_L2C']="4" 
 	['TLB_LOWER_STRESS_THRESHOLD']="1"
 	['TLB_UPPER_STRESS_THRESHOLD']="9" 
-	['INSTR_PAGE_SIZE_DIST']="${INSTR_PAGE_SIZE_DIST}"
-	['DATA_PAGE_SIZE_DIST']="${DATA_PAGE_SIZE_DIST}"
+	['INSTR_PAGE_SIZE_DIST']="0 10 50 100"
+	['DATA_PAGE_SIZE_DIST']="0 10 50 100"
 )
 
 export CONFIGURATION_TAGS="
-fig08_fdip_baseline_llc-s.1537-w.16	
-fig08_fdip_l2c-r.tdrrip_llc-s.1537-w.16	
-fig08_fdip_l2c-r.ptp_llc-s.1537-w.16	
-fig08_fdip_stlb-r.chirp_llc-s.1537-w.16
-fig08_fdip_stlb-r.chirp_l2c-r.tdrrip_llc-s.1537-w.16
-fig08_fdip_stlb-r.chirp_l2c-r.ptp_llc-s.1537-w.16
-fig08_fdip_stlb-r.itp_llc-s.1537-w.16
-fig08_fdip_stlb-r.itp_l2c-r.tdrrip_llc-s.1537-w.16
-fig08_fdip_stlb-r.itp_l2c-r.ptp_llc-s.1537-w.16
-fig08_fdip_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16
+fig13_fdip_baseline_llc-s.1537-w.16
+fig13_fdip_l2c-r.tdrrip_llc-s.1537-w.16
+fig13_fdip_l2c-r.ptp_llc-s.1537-w.16
+fig13_fdip_stlb-r.chirp_llc-s.1537-w.16
+fig13_fdip_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16
+fig13_fdip_mlpg-i.{INSTR_PAGE_SIZE_DIST}-d.{DATA_PAGE_SIZE_DIST}_baseline_llc-s.1537-w.16
+fig13_fdip_mlpg-i.{INSTR_PAGE_SIZE_DIST}-d.{DATA_PAGE_SIZE_DIST}_l2c-r.tdrrip_llc-s.1537-w.16
+fig13_fdip_mlpg-i.{INSTR_PAGE_SIZE_DIST}-d.{DATA_PAGE_SIZE_DIST}_l2c-r.ptp_llc-s.1537-w.16
+fig13_fdip_mlpg-i.{INSTR_PAGE_SIZE_DIST}-d.{DATA_PAGE_SIZE_DIST}_stlb-r.chirp_llc-s.1537-w.16
+fig13_fdip_mlpg-i.{INSTR_PAGE_SIZE_DIST}-d.{DATA_PAGE_SIZE_DIST}_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16
 "
+
 
 # GENERIC CONFIGURATION
 export ROOT_DIR=`pwd`
@@ -44,5 +45,8 @@ export GENERATE_STATS="True"
 export GENERATE_EXTRA_STATS="False"
 export GENERATE_PLOTS="False"
 export PLOT_FILE_TYPE="pdf"
+
+
+
 
 

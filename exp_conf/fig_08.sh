@@ -11,7 +11,7 @@ declare -A VAR_DECLARATIONS=(
 	['MIN_EVICTION_POSITION_L1D']="8" 
 	['MIN_EVICTION_POSITION_L2C']="4" 
 	['TLB_LOWER_STRESS_THRESHOLD']="1"
-	['TLB_UPPER_STRESS_THRESHOLD']="9" 
+	['TLB_UPPER_STRESS_THRESHOLD']="3" 
 	['INSTR_PAGE_SIZE_DIST']="${INSTR_PAGE_SIZE_DIST}"
 	['DATA_PAGE_SIZE_DIST']="${DATA_PAGE_SIZE_DIST}"
 )
@@ -29,10 +29,15 @@ fig08_fdip_stlb-r.itp_l2c-r.ptp_llc-s.1537-w.16
 fig08_fdip_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16
 "
 
+export CONFIGURATION_TAGS="
+fig08_fdip_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16
+"
+
 # GENERIC CONFIGURATION
 export ROOT_DIR=`pwd`
 export EXP_NAME=""
 export BENCHSUITES="selected_qualcomm_srv_ap smt_qualcomm_srv_ap"
+export BENCHSUITES="smt_qualcomm_srv_ap"
 
 # SIMULATION 
 export SIM_WARMUP_INSTR=50000000
