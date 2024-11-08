@@ -67,7 +67,7 @@ void CACHE::initialize_replacement()
 
 	if (getenv("TLB_UPPER_STRESS_THRESHOLD")) {
 		::TLB_UPPER_STRESS_THRESHOLD = std::stoi(getenv("TLB_UPPER_STRESS_THRESHOLD"));
-		//::TLB_STRESS_THRESHOLD = 0;
+		::TLB_UPPER_STRESS_THRESHOLD = 2.5;
 	}
 
 	maxRRPV = std::stoi(getenv("ITP_MAX_LRU"));

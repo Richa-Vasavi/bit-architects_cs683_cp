@@ -18,10 +18,15 @@ for benchsuite in ${BENCHSUITES}; do
 		echo $conf
 		echo ${base_conf}
 
+		smt="false"
+		if [[ ${benchsuite} == smt_* ]]; then
+			smt="true"
+			base_conf=${base_conf}_smt
+
 		if ${BUILD_CHAMPSIM}; then
 
 			echo "Generating ${ROOT_DIR}/sim_conf/champsim_${base_conf}.json..."
-			${ROOT_DIR}/scripts/gen_champsim_conf.py ${CHAMPSIM_DIR}/champsim_fdip_baseline.json ${base_conf}
+			${ROOT_DIR}/scripts/gen_champsim_conf.py ${CHAMPSIM_DIR}/champsim_fdip_baseline.json ${base_conf} ${smt}
 			cd ${CHAMPSIM_DIR}
 			${CHAMPSIM_DIR}/config.sh ${ROOT_DIR}/sim_conf/champsim_${base_conf}.json
 			make

@@ -12,7 +12,9 @@ if [ "${experiment}" = "fig_01" ]; then
 elif [ "${experiment}" = "fig_02" ]; then
 	${ROOT_DIR}/scripts/submit_experiment.sh ${ROOT_DIR}/exp_conf/fig_02.sh
 elif [ "${experiment}" = "fig_03" ]; then
-	${ROOT_DIR}/scripts/submit_experiment.sh ${ROOT_DIR}/exp_conf/fig_02.sh
+	${ROOT_DIR}/scripts/submit_experiment.sh ${ROOT_DIR}/exp_conf/fig_03.sh
+elif [ "${experiment}" = "fig_04" ]; then
+	${ROOT_DIR}/scripts/submit_experiment.sh ${ROOT_DIR}/exp_conf/fig_03.sh
 elif [ "${experiment}" = "fig_08" ]; then
 	${ROOT_DIR}/scripts/submit_experiment.sh ${ROOT_DIR}/exp_conf/fig_08.sh
 elif [ "${experiment}" = "fig_09" ]; then
@@ -33,6 +35,7 @@ elif [ "${experiments}" == "all" ]; then
 	echo "Running all experiments..."
 	${ROOT_DIR}/scripts/submit_experiment.sh ${ROOT_DIR}/exp_conf/fig_01.sh
 	${ROOT_DIR}/scripts/submit_experiment.sh ${ROOT_DIR}/exp_conf/fig_02.sh
+	${ROOT_DIR}/scripts/submit_experiment.sh ${ROOT_DIR}/exp_conf/fig_03.sh
 	${ROOT_DIR}/scripts/submit_experiment.sh ${ROOT_DIR}/exp_conf/fig_08.sh
 	${ROOT_DIR}/scripts/submit_experiment.sh ${ROOT_DIR}/exp_conf/fig_11.sh
 	${ROOT_DIR}/scripts/submit_experiment.sh ${ROOT_DIR}/exp_conf/fig_12.sh
