@@ -29,10 +29,6 @@ fig08_fdip_stlb-r.itp_l2c-r.ptp_llc-s.1537-w.16
 fig08_fdip_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16
 "
 
-export CONFIGURATION_TAGS="
-fig08_fdip_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16
-"
-
 # GENERIC CONFIGURATION
 export ROOT_DIR=`pwd`
 export EXP_NAME=""
