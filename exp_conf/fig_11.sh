@@ -21,11 +21,11 @@ fig11_fdip_baseline_llc-s.1537-w.16
 fig11_fdip_llc-r.ship-s.1537-w.16
 fig11_fdip_llc-r.mockingjay-s.1537-w.16
 fig11_fdip_stlb-r.itp_llc-s.1537-w.16
-fig11_fdip_stlb-r.itp-l2c-r.xptp-llc-s.1537-w.16
+fig11_fdip_stlb-r.itp_l2c-r.xptp_llc-s.1537-w.16
 fig11_fdip_stlb-r.itp_llc-r.ship-s.1537-w.16
-fig11_fdip_stlb-r.itp-m.true_l2c-r.xptp-m.true_llc-r.ship-s.1537-w.16
+fig11_fdip_stlb-r.itp_l2c-r.xptp_llc-r.ship-s.1537-w.16
 fig11_fdip_stlb-r.itp_llc-r.mockingjay-s.1537-w.16
-fig11_fdip_stlb-r.itp-l2c-r.xptp-llc-r.mockingjay-s.1537-w.16
+fig11_fdip_stlb-r.itp_l2c-r.xptp_llc-r.mockingjay-s.1537-w.16
 "
 
 # GENERIC CONFIGURATION

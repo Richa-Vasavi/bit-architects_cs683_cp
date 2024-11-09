@@ -4,9 +4,6 @@ source env.sh
 
 experiment=$1
 
-#TODO: add some conditional check for running baselines only if not present
-#${ROOT_DIR}/scripts/submit_experiment.sh ${ROOT_DIR}/exp_conf/baseline.sh
-
 if [ "${experiment}" = "fig_01" ]; then
 	${ROOT_DIR}/scripts/submit_experiment.sh ${ROOT_DIR}/exp_conf/fig_01.sh
 elif [ "${experiment}" = "fig_02" ]; then
@@ -27,10 +24,10 @@ elif [ "${experiment}" = "fig_12" ]; then
 	${ROOT_DIR}/scripts/submit_experiment.sh ${ROOT_DIR}/exp_conf/fig_12.sh
 elif [ "${experiment}" = "fig_13" ]; then
 	${ROOT_DIR}/scripts/submit_experiment.sh ${ROOT_DIR}/exp_conf/fig_13.sh
-elif [ "${experiemnt}" == "AE"]; then
+elif [ "${experiment}" == "AE" ]; then
 	echo "Running AE experiments..."
 	${ROOT_DIR}/scripts/submit_experiment.sh ${ROOT_DIR}/exp_conf/fig_08.sh
-elif [ "${experiments}" == "all" ]; then
+elif [ "${experiment}" == "all" ]; then
 	echo "Running all experiments..."
 	${ROOT_DIR}/scripts/submit_experiment.sh ${ROOT_DIR}/exp_conf/fig_01.sh
 	${ROOT_DIR}/scripts/submit_experiment.sh ${ROOT_DIR}/exp_conf/fig_02.sh

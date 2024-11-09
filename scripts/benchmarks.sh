@@ -16,9 +16,11 @@ elif [ "${BENCHSUITE}" == "smt_qualcomm_srv_ap"  ]; then
 elif [ "${BENCHSUITE}" == "spec" ]; then
 			TRACES="${SPEC_CPU_2006} ${SPEC_CPU_2017}"
 			TRACES_PATH="${SPEC_CPU_DIR}"
-else
+elif [ "${BENCHSUITE}" == "test" ]; then
 			TRACES=srv12_ap.champsimtrace.xz
 			TRACES_PATH="${QUALCOMM_SRV_AP_DIR}"
+else
+			echo "${BENCHSUITE} is not a valid bechmark suite!"	
 fi
 
 SIMPOINTS=''

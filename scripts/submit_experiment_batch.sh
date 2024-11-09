@@ -22,6 +22,7 @@ for benchsuite in ${BENCHSUITES}; do
 		if [[ ${benchsuite} == smt_* ]]; then
 			smt="true"
 			base_conf=${base_conf}_smt
+		fi
 
 		if ${BUILD_CHAMPSIM}; then
 
@@ -61,8 +62,8 @@ for benchsuite in ${BENCHSUITES}; do
 				curr_conf=$(echo ${curr_conf} | sed "s/{$conf_key}/$conf_value/g")
 			done
 
-			echo 	./scripts/submit_job.sh ${benchsuite} champsim_${base_conf} ${curr_conf}
-			./scripts/submit_job.sh ${benchsuite} champsim_${base_conf} ${curr_conf}
+			echo 	./scripts/submit_jobs_batch.sh ${benchsuite} champsim_${base_conf} ${curr_conf}
+			./scripts/submit_jobs_batch.sh ${benchsuite} champsim_${base_conf} _${curr_conf}
 
 			export_confs="${export_confs} ${curr_conf}"
 		done
