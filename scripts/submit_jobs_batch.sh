@@ -39,7 +39,7 @@ for i in {${ti}..${BATCH_SIZE}}; do
 	fi
 
 	export suffix=.champsimtrace.xz 
-  export bench=\${traces}%\$suffix}
+  export bench=\${trace}%\$suffix}
 
 	export PTP_EXTRA_STATS_FILE=${DUMP_DIR}/\${bench}_${DESCR_TAG}_access_rate.csv
 	export RECALL_DIST_FILENAME_PREFIX=${DUMP_DIR}/\${bench}_${DESCR_TAG}_recall_dist
