@@ -17,8 +17,6 @@ echo $TRACES_batch
 
 for (( ti=0; ti < ${#TRACES_batch[@]}; ti++ )) ; do
 
-	echo $ti
-
 echo "#!/bin/bash
 
 #SBATCH -o ${DUMP_DIR}/${BENCHSUITE}_${ti}${DESCR_TAG}_run.out 
@@ -29,7 +27,7 @@ echo "#!/bin/bash
 
 traces=(${TRACES})
 
-for i in {${ti}..${BATCH_SIZE}}; do
+for i in {${ti}..$(( ti+BATCH_SIZE ))}; do
 
 	trace=\${traces[\$i]}
 
