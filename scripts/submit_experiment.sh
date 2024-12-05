@@ -62,8 +62,11 @@ for benchsuite in ${BENCHSUITES}; do
 				curr_conf=$(echo ${curr_conf} | sed "s/{$conf_key}/$conf_value/g")
 			done
 
-			echo 	./scripts/submit_jobs.sh ${benchsuite} champsim_${base_conf} _${curr_conf}
-			./scripts/submit_jobs.sh ${benchsuite} champsim_${base_conf} _${curr_conf}
+#			echo 	./scripts/submit_jobs.sh ${benchsuite} champsim_${base_conf} _${curr_conf}
+#			./scripts/submit_jobs.sh ${benchsuite} champsim_${base_conf} _${curr_conf}
+			echo 	./scripts/run_jobs_batch.sh ${benchsuite} champsim_${base_conf} _${curr_conf}
+			./scripts/run_jobs_batch.sh ${benchsuite} champsim_${base_conf} _${curr_conf}
+
 
 			export_confs="${export_confs} ${curr_conf}"
 		done

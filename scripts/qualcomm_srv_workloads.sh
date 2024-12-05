@@ -970,5 +970,4 @@ smt_srv85_ap_srv727_ap_1024i.champsimtrace.xz
 smt_srv85_ap_srv73_ap_1024i.champsimtrace.xz
 "
 
-
 export QUALCOMM_SRV_AP_DIR="qualcomm_srv"
