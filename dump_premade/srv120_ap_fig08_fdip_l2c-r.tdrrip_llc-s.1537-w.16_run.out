@@ -1,0 +1,190 @@
+last_page:0x200000000000000
+VMEM_RES_CAP:0x100000
+PAGE_SIZE:4096
+LOG2_PAGE_SIZE:12
+LOG2_PAGE_TABLE_SIZE:9
+page_table_levels:5
+WARNING: physical memory size is smaller than virtual memory size
+FDiP enabled with aggresivity 16
+
+*** ChampSim Multicore Out-of-Order Simulator ***
+
+Warmup Instructions: 50000000
+Simulation Instructions: 100000000
+Number of CPUs: 1
+Small page size: 4096
+Large page size: 2097152
+
+CPU 0 Bimodal branch predictor
+Basic BTB sets: 1024 ways: 8 indirect buffer size: 4096 RAS size: 64
+Instruction page size distrubution: 0
+Loading instruction page size distribution from /home/bsc/bsc018186/scratch/itp_asplos25_AE/dump/srv120_ap.pdst
+Data page size distrubution: 0
+Loading data page size distribution from /home/bsc/bsc018186/scratch/itp_asplos25_AE/dump/srv120_ap.pdst
+cpu0_L2C IP-based stride prefetcher
+cpu0_L1D next line prefetcher
+cpu0_L1I next line prefetcher
+Off-chip DRAM Size: 4 GiB Channels: 1 Width: 64-bit Data Rate: 3200 MT/s
+Heartbeat CPU 0 instructions: 10000000 cycles: 2500096 heartbeat IPC: 3.99985 cumulative IPC: 3.99985 (Simulation time: 0 hr 0 min 34 sec) 
+Heartbeat CPU 0 instructions: 20000001 cycles: 5000146 heartbeat IPC: 3.99993 cumulative IPC: 3.99989 (Simulation time: 0 hr 1 min 12 sec) 
+Heartbeat CPU 0 instructions: 30000001 cycles: 7500173 heartbeat IPC: 3.99996 cumulative IPC: 3.99991 (Simulation time: 0 hr 1 min 49 sec) 
+Heartbeat CPU 0 instructions: 40000002 cycles: 10000312 heartbeat IPC: 3.99978 cumulative IPC: 3.99988 (Simulation time: 0 hr 2 min 26 sec) 
+Heartbeat CPU 0 instructions: 50000003 cycles: 12500364 heartbeat IPC: 3.99992 cumulative IPC: 3.99989 (Simulation time: 0 hr 3 min 4 sec) 
+Warmup finished CPU 0 instructions: 50000003 cycles: 12500365 cumulative IPC: 3.99989 (Simulation time: 0 hr 3 min 4 sec) 
+
+Warmup complete CPU 0 instructions: 50000003 cycles: 12500365 (Simulation time: 0 hr 3 min 4 sec) 
+
+Heartbeat CPU 0 instructions: 60000001 cycles: 25963131 heartbeat IPC: 0.74279 cumulative IPC: 0.74279 (Simulation time: 0 hr 4 min 3 sec) 
+Heartbeat CPU 0 instructions: 70000003 cycles: 39859652 heartbeat IPC: 0.719605 cumulative IPC: 0.731014 (Simulation time: 0 hr 5 min 2 sec) 
+Heartbeat CPU 0 instructions: 80000001 cycles: 54041184 heartbeat IPC: 0.705143 cumulative IPC: 0.722182 (Simulation time: 0 hr 6 min 2 sec) 
+Heartbeat CPU 0 instructions: 90000000 cycles: 67767968 heartbeat IPC: 0.728503 cumulative IPC: 0.723752 (Simulation time: 0 hr 7 min 1 sec) 
+Heartbeat CPU 0 instructions: 100000003 cycles: 82384027 heartbeat IPC: 0.68418 cumulative IPC: 0.715475 (Simulation time: 0 hr 8 min 2 sec) 
+*** Reached end of trace: /gpfs/projects/bsc18/MN4/bsc18/romol/ChampSim/traces/qualcomm_srv/srv120_ap.champsimtrace.xz
+Heartbeat CPU 0 instructions: 110000002 cycles: 96182739 heartbeat IPC: 0.724706 cumulative IPC: 0.716997 (Simulation time: 0 hr 9 min 2 sec) 
+Heartbeat CPU 0 instructions: 120000001 cycles: 109778481 heartbeat IPC: 0.735525 cumulative IPC: 0.719587 (Simulation time: 0 hr 10 min 1 sec) 
+Heartbeat CPU 0 instructions: 130000000 cycles: 123961633 heartbeat IPC: 0.705062 cumulative IPC: 0.717739 (Simulation time: 0 hr 11 min 2 sec) 
+Heartbeat CPU 0 instructions: 140000003 cycles: 138340021 heartbeat IPC: 0.695489 cumulative IPC: 0.715196 (Simulation time: 0 hr 12 min 2 sec) 
+Heartbeat CPU 0 instructions: 150000000 cycles: 152252805 heartbeat IPC: 0.718764 cumulative IPC: 0.715551 (Simulation time: 0 hr 13 min 2 sec) 
+Simulation finished CPU 0 instructions: 100000000 cycles: 139752442 cumulative IPC: 0.715552 (Simulation time: 0 hr 13 min 2 sec) 
+
+Simulation complete CPU 0 instructions: 100000000 cycles: 139752442 (Simulation time: 0 hr 13 min 2 sec) 
+
+
+ChampSim completed all CPUs
+
+Saving instructions large page distribution to /home/bsc/bsc018186/scratch/itp_asplos25_AE/dump/srv120_ap.pdst...
+Saving data large page distribution to /home/bsc/bsc018186/scratch/itp_asplos25_AE/dump/srv120_ap.pdst...
+=== Simulation ===
+CPU 0 runs /gpfs/projects/bsc18/MN4/bsc18/romol/ChampSim/traces/qualcomm_srv/srv120_ap.champsimtrace.xz
+
+Region of Interest Statistics
+
+CPU 0 cumulative IPC: 0.715552 instructions: 100000000 cycles: 139752442
+CPU 0 Branch Prediction Accuracy: 83.4627% MPKI: 29.6919 Average ROB Occupancy at Mispredict: 12.5398
+Branch type MPKI
+BRANCH_DIRECT_JUMP: 0.949091
+BRANCH_INDIRECT: 15.3879
+BRANCH_CONDITIONAL: 9.73314
+BRANCH_DIRECT_CALL: 1.81628
+BRANCH_INDIRECT_CALL: 0.490291
+BRANCH_RETURN: 1.31522
+
+Instructions large pages: 0
+Instructions small pages: 1007
+Large page distribution for instructions: 0%
+
+Data large pages: 0
+Data small pages: 9374
+Large page distribution for data: 0%
+
+cpu0_L1I TOTAL       ACCESS:   34936830  HIT:   26518780  MISS:    8418050  iACCESS:   34936830  iHIT:   26518780  iMISS:    8418050  dACCESS:          0  dHIT:          0  dMISS:          0  itACCESS:          0  itHIT:          0  itMISS:          0  dtACCESS:          0  dtHIT:          0  dtMISS:          0
+cpu0_L1I LOAD         ACCESS:   10167794  HIT:    7813697  MISS:    2354097  iACCESS:   10167794  iHIT:    7813697  iMISS:    2354097  dACCESS:          0  dHIT:          0  dMISS:          0  itACCESS:          0  itHIT:          0  itMISS:          0  dtACCESS:          0  dtHIT:          0  dtMISS:          0
+cpu0_L1I RFO          ACCESS:          0  HIT:          0  MISS:          0  iACCESS:          0  iHIT:          0  iMISS:          0  dACCESS:          0  dHIT:          0  dMISS:          0  itACCESS:          0  itHIT:          0  itMISS:          0  dtACCESS:          0  dtHIT:          0  dtMISS:          0
+cpu0_L1I PREFETCH     ACCESS:   24769036  HIT:   18705083  MISS:    6063953  iACCESS:   24769036  iHIT:   18705083  iMISS:    6063953  dACCESS:          0  dHIT:          0  dMISS:          0  itACCESS:          0  itHIT:          0  itMISS:          0  dtACCESS:          0  dtHIT:          0  dtMISS:          0
+cpu0_L1I WRITE        ACCESS:          0  HIT:          0  MISS:          0  iACCESS:          0  iHIT:          0  iMISS:          0  dACCESS:          0  dHIT:          0  dMISS:          0  itACCESS:          0  itHIT:          0  itMISS:          0  dtACCESS:          0  dtHIT:          0  dtMISS:          0
+cpu0_L1I TRANSLATION  ACCESS:          0  HIT:          0  MISS:          0  iACCESS:          0  iHIT:          0  iMISS:          0  dACCESS:          0  dHIT:          0  dMISS:          0  itACCESS:          0  itHIT:          0  itMISS:          0  dtACCESS:          0  dtHIT:          0  dtMISS:          0
+cpu0_L1I PREFETCH  REQUESTED:   27041220  ISSUED:   27037739  CROSSED:          0  USEFUL:    1925360  USELESS:     632325
+cpu0_L1I AVERAGE iMISS LATENCY: 13.2286 cycles
+cpu0_L1I AVERAGE dMISS LATENCY: 0 cycles
+cpu0_L1I AVERAGE itMISS LATENCY: 0 cycles
+cpu0_L1I AVERAGE dtMISS LATENCY: 0 cycles
+cpu0_L1I PAGE CROSSINGS (TLB HIT):         0 
+cpu0_L1I PAGE CROSSINGS (TLB MISS):         0 
+cpu0_L1I AVERAGE MISS LATENCY: 13.2286 cycles
+cpu0_ITLB TOTAL       ACCESS:   28941926  HIT:   26952213  MISS:    1989713  iACCESS:   28941926  iHIT:   26952213  iMISS:    1989713  dACCESS:          0  dHIT:          0  dMISS:          0  itACCESS:          0  itHIT:          0  itMISS:          0  dtACCESS:          0  dtHIT:          0  dtMISS:          0
+cpu0_ITLB LOAD         ACCESS:   28941926  HIT:   26952213  MISS:    1989713  iACCESS:   28941926  iHIT:   26952213  iMISS:    1989713  dACCESS:          0  dHIT:          0  dMISS:          0  itACCESS:          0  itHIT:          0  itMISS:          0  dtACCESS:          0  dtHIT:          0  dtMISS:          0
+cpu0_ITLB RFO          ACCESS:          0  HIT:          0  MISS:          0  iACCESS:          0  iHIT:          0  iMISS:          0  dACCESS:          0  dHIT:          0  dMISS:          0  itACCESS:          0  itHIT:          0  itMISS:          0  dtACCESS:          0  dtHIT:          0  dtMISS:          0
+cpu0_ITLB PREFETCH     ACCESS:          0  HIT:          0  MISS:          0  iACCESS:          0  iHIT:          0  iMISS:          0  dACCESS:          0  dHIT:          0  dMISS:          0  itACCESS:          0  itHIT:          0  itMISS:          0  dtACCESS:          0  dtHIT:          0  dtMISS:          0
+cpu0_ITLB WRITE        ACCESS:          0  HIT:          0  MISS:          0  iACCESS:          0  iHIT:          0  iMISS:          0  dACCESS:          0  dHIT:          0  dMISS:          0  itACCESS:          0  itHIT:          0  itMISS:          0  dtACCESS:          0  dtHIT:          0  dtMISS:          0
+cpu0_ITLB TRANSLATION  ACCESS:          0  HIT:          0  MISS:          0  iACCESS:          0  iHIT:          0  iMISS:          0  dACCESS:          0  dHIT:          0  dMISS:          0  itACCESS:          0  itHIT:          0  itMISS:          0  dtACCESS:          0  dtHIT:          0  dtMISS:          0
+cpu0_ITLB PREFETCH  REQUESTED:          0  ISSUED:          0  CROSSED:          0  USEFUL:     324293  USELESS:      62709
+cpu0_ITLB AVERAGE iMISS LATENCY: 2.97785 cycles
+cpu0_ITLB AVERAGE dMISS LATENCY: 0 cycles
+cpu0_ITLB AVERAGE itMISS LATENCY: 0 cycles
+cpu0_ITLB AVERAGE dtMISS LATENCY: 0 cycles
+cpu0_ITLB PAGE CROSSINGS (TLB HIT):         0 
+cpu0_ITLB PAGE CROSSINGS (TLB MISS):         0 
+cpu0_ITLB AVERAGE MISS LATENCY: 2.97785 cycles
+cpu0_DTLB TOTAL       ACCESS:   27720496  HIT:   25660917  MISS:    2059579  iACCESS:          0  iHIT:          0  iMISS:          0  dACCESS:   27720496  dHIT:   25660917  dMISS:    2059579  itACCESS:          0  itHIT:          0  itMISS:          0  dtACCESS:          0  dtHIT:          0  dtMISS:          0
+cpu0_DTLB LOAD         ACCESS:   27720496  HIT:   25660917  MISS:    2059579  iACCESS:          0  iHIT:          0  iMISS:          0  dACCESS:   27720496  dHIT:   25660917  dMISS:    2059579  itACCESS:          0  itHIT:          0  itMISS:          0  dtACCESS:          0  dtHIT:          0  dtMISS:          0
+cpu0_DTLB RFO          ACCESS:          0  HIT:          0  MISS:          0  iACCESS:          0  iHIT:          0  iMISS:          0  dACCESS:          0  dHIT:          0  dMISS:          0  itACCESS:          0  itHIT:          0  itMISS:          0  dtACCESS:          0  dtHIT:          0  dtMISS:          0
+cpu0_DTLB PREFETCH     ACCESS:          0  HIT:          0  MISS:          0  iACCESS:          0  iHIT:          0  iMISS:          0  dACCESS:          0  dHIT:          0  dMISS:          0  itACCESS:          0  itHIT:          0  itMISS:          0  dtACCESS:          0  dtHIT:          0  dtMISS:          0
+cpu0_DTLB WRITE        ACCESS:          0  HIT:          0  MISS:          0  iACCESS:          0  iHIT:          0  iMISS:          0  dACCESS:          0  dHIT:          0  dMISS:          0  itACCESS:          0  itHIT:          0  itMISS:          0  dtACCESS:          0  dtHIT:          0  dtMISS:          0
+cpu0_DTLB TRANSLATION  ACCESS:          0  HIT:          0  MISS:          0  iACCESS:          0  iHIT:          0  iMISS:          0  dACCESS:          0  dHIT:          0  dMISS:          0  itACCESS:          0  itHIT:          0  itMISS:          0  dtACCESS:          0  dtHIT:          0  dtMISS:          0
+cpu0_DTLB PREFETCH  REQUESTED:          0  ISSUED:          0  CROSSED:          0  USEFUL:          0  USELESS:          0
+cpu0_DTLB AVERAGE iMISS LATENCY: 0 cycles
+cpu0_DTLB AVERAGE dMISS LATENCY: 9.94289 cycles
+cpu0_DTLB AVERAGE itMISS LATENCY: 0 cycles
+cpu0_DTLB AVERAGE dtMISS LATENCY: 0 cycles
+cpu0_DTLB PAGE CROSSINGS (TLB HIT):         0 
+cpu0_DTLB PAGE CROSSINGS (TLB MISS):         0 
+cpu0_DTLB AVERAGE MISS LATENCY: 9.94289 cycles
+cpu0_STLB TOTAL       ACCESS:    1646747  HIT:    1484368  MISS:     162379  iACCESS:     387053  iHIT:     330349  iMISS:      56704  dACCESS:    1259694  dHIT:    1154019  dMISS:     105675  itACCESS:          0  itHIT:          0  itMISS:          0  dtACCESS:          0  dtHIT:          0  dtMISS:          0
+cpu0_STLB LOAD         ACCESS:    1646747  HIT:    1484368  MISS:     162379  iACCESS:     387053  iHIT:     330349  iMISS:      56704  dACCESS:    1259694  dHIT:    1154019  dMISS:     105675  itACCESS:          0  itHIT:          0  itMISS:          0  dtACCESS:          0  dtHIT:          0  dtMISS:          0
+cpu0_STLB RFO          ACCESS:          0  HIT:          0  MISS:          0  iACCESS:          0  iHIT:          0  iMISS:          0  dACCESS:          0  dHIT:          0  dMISS:          0  itACCESS:          0  itHIT:          0  itMISS:          0  dtACCESS:          0  dtHIT:          0  dtMISS:          0
+cpu0_STLB PREFETCH     ACCESS:          0  HIT:          0  MISS:          0  iACCESS:          0  iHIT:          0  iMISS:          0  dACCESS:          0  dHIT:          0  dMISS:          0  itACCESS:          0  itHIT:          0  itMISS:          0  dtACCESS:          0  dtHIT:          0  dtMISS:          0
+cpu0_STLB WRITE        ACCESS:          0  HIT:          0  MISS:          0  iACCESS:          0  iHIT:          0  iMISS:          0  dACCESS:          0  dHIT:          0  dMISS:          0  itACCESS:          0  itHIT:          0  itMISS:          0  dtACCESS:          0  dtHIT:          0  dtMISS:          0
+cpu0_STLB TRANSLATION  ACCESS:          0  HIT:          0  MISS:          0  iACCESS:          0  iHIT:          0  iMISS:          0  dACCESS:          0  dHIT:          0  dMISS:          0  itACCESS:          0  itHIT:          0  itMISS:          0  dtACCESS:          0  dtHIT:          0  dtMISS:          0
+cpu0_STLB PREFETCH  REQUESTED:          0  ISSUED:          0  CROSSED:          0  USEFUL:          0  USELESS:          0
+cpu0_STLB AVERAGE iMISS LATENCY: 17.6659 cycles
+cpu0_STLB AVERAGE dMISS LATENCY: 64.3398 cycles
+cpu0_STLB AVERAGE itMISS LATENCY: 0 cycles
+cpu0_STLB AVERAGE dtMISS LATENCY: 0 cycles
+cpu0_STLB PAGE CROSSINGS (TLB HIT):         0 
+cpu0_STLB PAGE CROSSINGS (TLB MISS):         0 
+cpu0_STLB AVERAGE MISS LATENCY: 82.0056 cycles
+cpu0_L1D TOTAL       ACCESS:   41508357  HIT:   37912162  MISS:    3596195  iACCESS:          0  iHIT:          0  iMISS:          0  dACCESS:   41282862  dHIT:   37892399  dMISS:    3390463  itACCESS:      61472  itHIT:       9002  itMISS:      52470  dtACCESS:     164023  dtHIT:      10761  dtMISS:     153262
+cpu0_L1D LOAD         ACCESS:   18957661  HIT:   17402963  MISS:    1554698  iACCESS:          0  iHIT:          0  iMISS:          0  dACCESS:   18957661  dHIT:   17402963  dMISS:    1554698  itACCESS:          0  itHIT:          0  itMISS:          0  dtACCESS:          0  dtHIT:          0  dtMISS:          0
+cpu0_L1D RFO          ACCESS:          0  HIT:          0  MISS:          0  iACCESS:          0  iHIT:          0  iMISS:          0  dACCESS:          0  dHIT:          0  dMISS:          0  itACCESS:          0  itHIT:          0  itMISS:          0  dtACCESS:          0  dtHIT:          0  dtMISS:          0
+cpu0_L1D PREFETCH     ACCESS:   12185462  HIT:   10782706  MISS:    1402756  iACCESS:          0  iHIT:          0  iMISS:          0  dACCESS:   12185462  dHIT:   10782706  dMISS:    1402756  itACCESS:          0  itHIT:          0  itMISS:          0  dtACCESS:          0  dtHIT:          0  dtMISS:          0
+cpu0_L1D WRITE        ACCESS:   10139739  HIT:    9706730  MISS:     433009  iACCESS:          0  iHIT:          0  iMISS:          0  dACCESS:   10139739  dHIT:    9706730  dMISS:     433009  itACCESS:          0  itHIT:          0  itMISS:          0  dtACCESS:          0  dtHIT:          0  dtMISS:          0
+cpu0_L1D TRANSLATION  ACCESS:     225495  HIT:      19763  MISS:     205732  iACCESS:          0  iHIT:          0  iMISS:          0  dACCESS:          0  dHIT:          0  dMISS:          0  itACCESS:      61472  itHIT:       9002  itMISS:      52470  dtACCESS:     164023  dtHIT:      10761  dtMISS:     153262
+cpu0_L1D PREFETCH  REQUESTED:   18957661  ISSUED:   16979876  CROSSED:          0  USEFUL:     309474  USELESS:     706808
+cpu0_L1D AVERAGE iMISS LATENCY: 0 cycles
+cpu0_L1D AVERAGE dMISS LATENCY: 32.5883 cycles
+cpu0_L1D AVERAGE itMISS LATENCY: 0.655527 cycles
+cpu0_L1D AVERAGE dtMISS LATENCY: 2.26608 cycles
+cpu0_L1D PAGE CROSSINGS (TLB HIT):         0 
+cpu0_L1D PAGE CROSSINGS (TLB MISS):         0 
+cpu0_L1D AVERAGE MISS LATENCY: 35.5099 cycles
+cpu0_L2C TOTAL       ACCESS:    7011912  HIT:    1709096  MISS:    5302816  iACCESS:    3311404  iHIT:     893146  iMISS:    2418258  dACCESS:    3508526  dHIT:     702203  dMISS:    2806323  itACCESS:      52470  itHIT:      37851  itMISS:      14619  dtACCESS:     139512  dtHIT:      75896  dtMISS:      63616
+cpu0_L2C LOAD         ACCESS:    1732936  HIT:     308942  MISS:    1423994  iACCESS:     792308  iHIT:     158857  iMISS:     633451  dACCESS:     940628  dHIT:     150085  dMISS:     790543  itACCESS:          0  itHIT:          0  itMISS:          0  dtACCESS:          0  dtHIT:          0  dtMISS:          0
+cpu0_L2C RFO          ACCESS:     157029  HIT:      50762  MISS:     106267  iACCESS:          0  iHIT:          0  iMISS:          0  dACCESS:     157029  dHIT:      50762  dMISS:     106267  itACCESS:          0  itHIT:          0  itMISS:          0  dtACCESS:          0  dtHIT:          0  dtMISS:          0
+cpu0_L2C PREFETCH     ACCESS:    4643732  HIT:    1097994  MISS:    3545738  iACCESS:    2519096  iHIT:     734289  iMISS:    1784807  dACCESS:    2124636  dHIT:     363705  dMISS:    1760931  itACCESS:          0  itHIT:          0  itMISS:          0  dtACCESS:          0  dtHIT:          0  dtMISS:          0
+cpu0_L2C WRITE        ACCESS:     286233  HIT:     137651  MISS:     148582  iACCESS:          0  iHIT:          0  iMISS:          0  dACCESS:     286233  dHIT:     137651  dMISS:     148582  itACCESS:          0  itHIT:          0  itMISS:          0  dtACCESS:          0  dtHIT:          0  dtMISS:          0
+cpu0_L2C TRANSLATION  ACCESS:     191982  HIT:     113747  MISS:      78235  iACCESS:          0  iHIT:          0  iMISS:          0  dACCESS:          0  dHIT:          0  dMISS:          0  itACCESS:      52470  itHIT:      37851  itMISS:      14619  dtACCESS:     139512  dtHIT:      75896  dtMISS:      63616
+cpu0_L2C PREFETCH  REQUESTED:    1393189  ISSUED:    1393189  CROSSED:          0  USEFUL:     398822  USELESS:     378920
+cpu0_L2C AVERAGE iMISS LATENCY: 15.1913 cycles
+cpu0_L2C AVERAGE dMISS LATENCY: 25.3597 cycles
+cpu0_L2C AVERAGE itMISS LATENCY: 0.352558 cycles
+cpu0_L2C AVERAGE dtMISS LATENCY: 1.28639 cycles
+cpu0_L2C PAGE CROSSINGS (TLB HIT):         0 
+cpu0_L2C PAGE CROSSINGS (TLB MISS):         0 
+cpu0_L2C AVERAGE MISS LATENCY: 42.1899 cycles
+LLC TOTAL       ACCESS:    5180937  HIT:    4384061  MISS:     796876  iACCESS:    2361714  iHIT:    2129258  iMISS:     232456  dACCESS:    2740988  dHIT:    2217202  dMISS:     523786  itACCESS:      14619  itHIT:       5442  itMISS:       9177  dtACCESS:      63616  dtHIT:      32159  dtMISS:      31457
+LLC LOAD         ACCESS:    1421251  HIT:    1244594  MISS:     176657  iACCESS:     631650  iHIT:     582723  iMISS:      48927  dACCESS:     789601  dHIT:     661871  dMISS:     127730  itACCESS:          0  itHIT:          0  itMISS:          0  dtACCESS:          0  dtHIT:          0  dtMISS:          0
+LLC RFO          ACCESS:     106265  HIT:      69915  MISS:      36350  iACCESS:          0  iHIT:          0  iMISS:          0  dACCESS:     106265  dHIT:      69915  dMISS:      36350  itACCESS:          0  itHIT:          0  itMISS:          0  dtACCESS:          0  dtHIT:          0  dtMISS:          0
+LLC PREFETCH     ACCESS:    3437332  HIT:    2902722  MISS:     534610  iACCESS:    1730064  iHIT:    1546535  iMISS:     183529  dACCESS:    1707268  dHIT:    1356187  dMISS:     351081  itACCESS:          0  itHIT:          0  itMISS:          0  dtACCESS:          0  dtHIT:          0  dtMISS:          0
+LLC WRITE        ACCESS:     137854  HIT:     129229  MISS:       8625  iACCESS:          0  iHIT:          0  iMISS:          0  dACCESS:     137854  dHIT:     129229  dMISS:       8625  itACCESS:          0  itHIT:          0  itMISS:          0  dtACCESS:          0  dtHIT:          0  dtMISS:          0
+LLC TRANSLATION  ACCESS:      78235  HIT:      37601  MISS:      40634  iACCESS:          0  iHIT:          0  iMISS:          0  dACCESS:          0  dHIT:          0  dMISS:          0  itACCESS:      14619  itHIT:       5442  itMISS:       9177  dtACCESS:      63616  dtHIT:      32159  dtMISS:      31457
+LLC PREFETCH  REQUESTED:          0  ISSUED:          0  CROSSED:          0  USEFUL:          0  USELESS:          0
+LLC AVERAGE iMISS LATENCY: 43.883 cycles
+LLC AVERAGE dMISS LATENCY: 105.827 cycles
+LLC AVERAGE itMISS LATENCY: 1.98681 cycles
+LLC AVERAGE dtMISS LATENCY: 7.00491 cycles
+LLC PAGE CROSSINGS (TLB HIT):         0 
+LLC PAGE CROSSINGS (TLB MISS):         0 
+LLC AVERAGE MISS LATENCY: 158.702 cycles
+
+PageTableWalker TOTAL       ACCESS:      81714  
+PageTableWalker AVERAGE LATENCY: 4.47899 cycles
+PageTableWalker TOTAL LATENCY: 365996 cycles
+
+DRAM Statistics
+Channel 0
+ RQ ROW_BUFFER_HIT:     208217
+  ROW_BUFFER_MISS:     579527
+ AVG DBUS CONGESTED CYCLE:    3.62294
+ WQ ROW_BUFFER_HIT:      15281
+  ROW_BUFFER_MISS:      22656  FULL:          0
+
