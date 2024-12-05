@@ -22,7 +22,6 @@ fig03_fdip_baseline_llc-s.1537-w.16
 fig03_fdip_probi.{PROBR_INSTR_EVICT_PROB}_stlb-r.probi_llc-s.1537-w.16
 "
 
-
 # GENERIC CONFIGURATION
 export ROOT_DIR=`pwd`
 export EXP_NAME=""

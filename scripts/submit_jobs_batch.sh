@@ -23,7 +23,7 @@ echo "#!/bin/bash
 #SBATCH -J chmpS_${BENCHSUITE}_${ti}${DESCR_TAG}_run
 #SBATCH -A bsc18
 #SBATCH --qos=gp_bsccs
-#SBATCH --time=12:00:00
+#SBATCH --time=08:00:00
 
 traces=(${TRACES})
 

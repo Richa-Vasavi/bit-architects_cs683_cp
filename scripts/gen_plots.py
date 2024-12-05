@@ -20,19 +20,19 @@ def gen_plot(figure_name):
 	if (figure_name == "fig_01"):
 		
 		benchsuite = "selected_qualcomm_srv_ap"	
-		input_qualcomm_baseline_files =	[ "./stats/" + benchsuite + "fig01_fdip_itlb-s.128-w.8_llc-s.1537-w.16.csv" ]
+		input_qualcomm_baseline_files =	[ "./stats/" + benchsuite + "_fig01_fdip_itlb-s.128-w.8_llc-s.1537-w.16.csv" ]
 	
 		input_qualcomm_data_files = [ 
-													"./stats/" + benchsuite  + "fig01_fdip_itlb-s.256-w.4_llc-s.1537-w.16.csv",
-													"./stats/" + benchsuite  + "fig01_fdip_itlb-s.128-w.4_llc-s.1537-w.16.csv",
-													"./stats/" + benchsuite  + "fig01_fdip_itlb-s.32-w.4_llc-s.1537-w.16.csv",
-													"./stats/" + benchsuite  + "fig01_fdip_itlb-s.16-w.4_llc-s.1537-w.16.csv",
-													"./stats/" + benchsuite  + "fig01_fdip_itlb-s.2-w.4_llc-s.1537-w.16.csv"
+													"./stats/" + benchsuite  + "_fig01_fdip_itlb-s.256-w.4_llc-s.1537-w.16.csv",
+													"./stats/" + benchsuite  + "_fig01_fdip_itlb-s.128-w.4_llc-s.1537-w.16.csv",
+													"./stats/" + benchsuite  + "_fig01_fdip_itlb-s.32-w.4_llc-s.1537-w.16.csv",
+													"./stats/" + benchsuite  + "_fig01_fdip_itlb-s.16-w.4_llc-s.1537-w.16.csv",
+													"./stats/" + benchsuite  + "_fig01_fdip_itlb-s.2-w.4_llc-s.1537-w.16.csv"
 												]
 	
 	
 		benchsuite = "spec"	
-		input_spec_baseline_files =	[ "./stats/" + benchsuite + "fig01_fdip_itlb-s.128-w.8_llc-s.1537-w.16.csv" ]
+		input_spec_baseline_files =	[ "./stats/" + benchsuite + "_fig01_fdip_itlb-s.128-w.8_llc-s.1537-w.16.csv" ]
 	
 		input_spec_data_files = [ 
 															"./stats/" + benchsuite  + "_fig01_fdip_itlb-s.256-w.4_llc-s.1537-w.16.csv",
@@ -46,7 +46,7 @@ def gen_plot(figure_name):
 	
 		plot_conf = { 'xlabel':  xlabels[benchsuite], 'plot_type': 'violin'}
 		plot_conf['plot_width'] = 7
-		plot_conf['plot_height'] = 1.8
+		plot_conf['plot_height'] = 2.5
 	
 		input_tags = [
 										"1024 entries", 
@@ -128,8 +128,8 @@ def gen_plot(figure_name):
 	
 		cache_type = "cpu0_STLB"
 		op_type = "TOTAL"
-		output_file = FIGURES_DIR + "/figures/fig03_itp_vs_dtp_" + benchsuite + ".pdf"
-		print(FIGURES_DIR + "/figures/fig03_itp_vs_dtp_" + benchsuite + ".pdf")
+		output_file = FIGURES_DIR + "/fig03_itp_vs_dtp_" + benchsuite + ".pdf"
+		print(FIGURES_DIR + "/fig03_itp_vs_dtp_" + benchsuite + ".pdf")
 		plots.plot_ipc_improvement_w_means(	input_baseline_files, input_data_files, input_tags, 
 																				cache_type, op_type, plot_conf, output_file)
 				
@@ -159,12 +159,12 @@ def gen_plot(figure_name):
 	
 		plot_conf = { 'xlabel':  'smth', 'plot_type': 'barplot'}
 		plot_conf['plot_width'] = 6.2
-		plot_conf['plot_height'] = 2
+		plot_conf['plot_height'] = 1.5
 		cache_types = [ 'cpu0_L2C', 'LLC' ]
 		input_tags = [ 'LRU', 'KiT' ]
 		op_type = "TOTAL"
-		output_file = FIGURES_DIR + "/figures/fig04_kit_mpki_breakdown_all_log.pdf"
-		print(FIGURES_DIR + "/figures/fig04_kit_mpki_breakdown_all_log.pdf")
+		output_file = FIGURES_DIR + "/fig04_kit_mpki_breakdown_all_log.pdf"
+		print(FIGURES_DIR + "/fig04_kit_mpki_breakdown_all_log.pdf")
 		plots.plot_kit_mpki_breakdown(input_data_files, input_tags, 
 										cache_types, op_type, plot_conf, output_file)
 	

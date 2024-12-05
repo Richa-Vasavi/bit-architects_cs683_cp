@@ -11,10 +11,10 @@ elif [ "${experiment}" = "fig_02" ]; then
 	${ROOT_DIR}/scripts/parse_data.sh exp_conf/fig_02.sh
 	python3 ${ROOT_DIR}/scripts/gen_plots.py --figure fig_02 
 elif [ "${experiment}" = "fig_03" ]; then
-	${ROOT_DIR}/scripts/parse_data.sh exp_conf/fig_02.sh
+	${ROOT_DIR}/scripts/parse_data.sh exp_conf/fig_03.sh
 	python3 ${ROOT_DIR}/scripts/gen_plots.py --figure fig_03 
 elif [ "${experiment}" = "fig_04" ]; then
-	${ROOT_DIR}/scripts/parse_data.sh exp_conf/fig_04.sh
+	${ROOT_DIR}/scripts/parse_data.sh exp_conf/fig_03.sh
 	python3 ${ROOT_DIR}/scripts/gen_plots.py --figure fig_04 
 elif [ "${experiment}" = "fig_08" ]; then
 	${ROOT_DIR}/scripts/parse_data.sh exp_conf/fig_08.sh

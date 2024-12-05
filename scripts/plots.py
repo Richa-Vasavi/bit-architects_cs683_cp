@@ -1205,8 +1205,8 @@ def plot_dtmpki_variation_abs_(input_data_files, input_tags, cache_types,
 		fig.savefig(output_file, bbox_inches='tight')
 
 
-def plot_kit_mpki_breakdown( 	input_data_files, input_tags, cache_types,
-								op_type, plot_conf, output_file):
+def plot_kit_mpki_breakdown(input_data_files, input_tags, cache_types,
+														op_type, plot_conf, output_file):
 
 		#baseline_df = load_df(input_baseline_files, input_tags, cache_types, op_type, False)
 		#df = load_df(input_data_files, input_tags, cache_types, op_type, False)
@@ -1277,7 +1277,7 @@ def plot_kit_mpki_breakdown( 	input_data_files, input_tags, cache_types,
 			df = df[['benchmarks', 'CACHE', metric]]
 			
 			#print(means_df)
-			ax = sns.barplot(	data=means_df, x='cache', y=metric, hue='conf', width=0.7,
+			ax = sns.barplot(	data=means_df, x='cache', y=metric, hue='conf', width=0.5,
 												ax=axes[1], edgecolor='black', linewidth=1)
 			#ax.set_yscale('symlog', linthreshy=0.01)
 			## cannot set translarency or other properties of hactes, need to create custom one ###
@@ -1320,7 +1320,7 @@ def plot_kit_mpki_breakdown( 	input_data_files, input_tags, cache_types,
 			ax.set_xlabel('')
 			#ax.set_xticklabels(ax.get_xticklabels(), rotation=30, size=9, horizontalalignment='right')
 			ax.set_yscale('symlog')
-			ax.set_ylim([None, 400])
+			ax.set_ylim([None, 100])
 
 			ax.set_axisbelow(True)
 			ax.grid(visible=True, color='grey', alpha=0.5, which='major', linestyle='--', linewidth=1.5)
@@ -1329,10 +1329,10 @@ def plot_kit_mpki_breakdown( 	input_data_files, input_tags, cache_types,
 		mpki_breakdown_legend = ax.legend(handles = [ 	mpki_legend_handle[0], mpki_legend_handle[1],
 														mpki_legend_handle[2], mpki_legend_handle[3] ], 
 													labels = ['dMPKI', 'iMPKI', 'dtMPKI', 'itMPKI'], loc='upper center', 
-													ncol=2, frameon=0, bbox_to_anchor=(0.75,1.5), title = "MPKI Breakdown")
+													ncol=2, frameon=0, bbox_to_anchor=(0.75,1.7), title = "MPKI Breakdown")
 		ax.legend(handles = [rep_pol_legend_handle[0], rep_pol_legend_handle[1]], 
 								labels = ['LRU', 'Keep Instructions (P=0.8)'], loc='upper center', 
-								ncol=1, frameon=0, bbox_to_anchor=(0.25,1.5), title = "Replacement Policy")
+								ncol=1, frameon=0, bbox_to_anchor=(0.25,1.7), title = "Replacement Policy")
 		plt.gca().add_artist(mpki_breakdown_legend)
 		mpki_breakdown_legend.legendHandles[0].set_facecolor('white')
 		mpki_breakdown_legend.legendHandles[1].set_facecolor('white')
@@ -2287,7 +2287,7 @@ def plot_itlb_sensitivity(	input_qualcomm_baseline_files, input_qualcomm_data_fi
 									gridspec_kw={	'width_ratios': [plot_width-2, 2], 
 																'height_ratios': [plot_height]})
 
-		plt.subplots_adjust(left=0.1,
+		plt.subplots_adjust(left=0.05,
                     		bottom=0.1, 
                     		right=1, 
                     		top=0.9, 
@@ -2339,17 +2339,34 @@ def plot_itlb_sensitivity(	input_qualcomm_baseline_files, input_qualcomm_data_fi
 		# plot point graph
 		plot_conf['legend_yoffset'] = .8
 		plot_conf['legend_xoffset'] = 1.25
-		plot_conf['fontsize'] = 14
+		plot_conf['fontsize'] = 15
 		plot_conf['alpha'] = .9
 		plot_conf['xlabel'] = ''
-		ax = plot(df, 'benchmarks', stat_name, 'conf', axes[0], 'point', plot_conf, False, False, True, False)
+		#ax = plot(df, 'benchmarks', stat_name, 'conf', axes[0], 'point', plot_conf, False, False, True, False)
+
+		marker_styles = ['s', 'v', 'o', '^', 'P', 'X']
+		ax = sns.scatterplot( data=df, x='benchmarks', y=stat_name, hue='conf', style='conf', 
+							markers=marker_styles, edgecolor='black', alpha=plot_conf['alpha'], ax=axes[0])
+
+		ax.set_ylabel(plot_conf['ylabel'], fontsize=15)
+		ax.set_xlabel(plot_conf['xlabel'], fontsize=15)
+
+		ax.set_yticks(np.arange(0, 25, 5))
+		ax.set_xticks([])
 	
+		#plt.yticks(fontsize=15)
+		#plt.xticks(fontsize=15)
+		for tick in ax.yaxis.get_majorticklabels():
+			tick.set_fontsize(14) 
 			
+		ax.set_axisbelow(True)
+		ax.grid(visible=True, axis='y', color='grey', alpha=0.5, linestyle='--', linewidth=1.5)
+
 		#plt.axvline(x=180, ymin=0, ymax=1, color='black', axes=axes[0])
 		#ax.vlines(100,0,20)
 		ax.axvline(98, color='black', zorder=0)
 			
-		ax.text(25, -6, 'Qualcomm\n   Server', fontsize=plot_conf['fontsize'])
+		ax.text(25, -5, 'Qualcomm\n   Server', fontsize=plot_conf['fontsize'])
 		ax.text(115, -3.25, 'SPEC', fontsize=plot_conf['fontsize'])
 
 		# Get the legend handles
@@ -2370,7 +2387,7 @@ def plot_itlb_sensitivity(	input_qualcomm_baseline_files, input_qualcomm_data_fi
 		ax = sns.barplot(	data=means_df, x='workload', y='geomean', hue='conf', width=0.8,
 											linewidth=1, edgecolor='black', ax=axes[1])
 	
-		ax.text(-0.9, -4.5, 'Qualcomm\n   Server', fontsize=plot_conf['fontsize'])
+		ax.text(-0.9, -4, 'Qualcomm\n   Server', fontsize=plot_conf['fontsize'])
 		ax.text(0.7, -2.5, 'SPEC', fontsize=plot_conf['fontsize'])
 
 		ax.axvline(0.5, color='black', zorder=0)
@@ -2380,10 +2397,15 @@ def plot_itlb_sensitivity(	input_qualcomm_baseline_files, input_qualcomm_data_fi
 		ax.set_xlabel('', fontsize=plot_conf['fontsize'])
 		ax.set_xticks([])
 		ax.set_ylabel('AVG Cycles Spent on\nInstruction Address\nTranslation (%)', fontsize=plot_conf['fontsize'])
-		plt.yticks(fontsize=11)
+		#plt.yticks(fontsize=14)
+		#ax.set_yticklabels([0, 5, 10, 15], fontsize=15)
+		ax.set_yticks(np.arange(0, 20, 5))
 
-		if plot_conf['ylim2'] != None:
-			ax.set_ylim([0, plot_conf['ylim2']])
+		for tick in ax.yaxis.get_majorticklabels():
+			tick.set_fontsize(14) 
+
+		#if plot_conf['ylim2'] != None:
+		#	ax.set_ylim([0, plot_conf['ylim2']])
 
 		ax.set_axisbelow(True)
 		ax.grid(visible=True, axis='y', color='grey', alpha=0.5, linestyle='--', linewidth=1.5)

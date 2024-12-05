@@ -45,9 +45,11 @@ void CACHE::initialize_replacement()
 			::TLB_UPPER_STRESS_THRESHOLD = 9;
 	}
 
+	/*
 	if (getenv("MIN_EVICTION_POSITION")) {
 		::MIN_EVICTION_POSITION[this] = std::stoi(getenv("MIN_EVICTION_POSITION"));
 	}
+	*/
 
 	if (getenv("MIN_EVICTION_POSITION_L1D") && (NAME.compare("cpu0_L1D") == 0)) {
 		::MIN_EVICTION_POSITION[this] = std::stoi(getenv("MIN_EVICTION_POSITION_L1D"));
