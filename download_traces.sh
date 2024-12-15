@@ -10,7 +10,7 @@ if [ ${TRACES} == "qualcomm_srv" ] || [ ${TRACES} == "AE" ]; then
 	zenodo_get -o ${TRACE_DIR}/qualcomm_srv https://doi.org/10.5281/zenodo.14045185
 	cd ${TRACE_DIR}
 	tar xvf qualcomm_srv.tar 
-	rm qualcomm_srv_tar
+	rm qualcomm_srv.tar
 	tar xvf smt_qualcomm_srv.tar
 	rm smt_qualcomm_srv.tar
 	cd ${ROOT_DIR}
@@ -21,9 +21,9 @@ elif [ ${TRACES} == "spec" ]; then
 else
 	zenodo_get -o ${TRACE_DIR}/qualcomm_srv https://doi.org/10.5281/zenodo.14045185
 	mkdir -p ${TRACE_DIR}/qualcomm_srv
-	cd ${TRACE_DIR}
+	cd ${TRACE_DIR}/qualcomm_srv
 	tar xvf qualcomm_srv.tar 
-	rm qualcomm_srv_tar
+	rm qualcomm_srv.tar
 	tar xvf smt_qualcomm_srv.tar
 	rm smt_qualcomm_srv.tar
 	cd ${ROOT_DIR}
