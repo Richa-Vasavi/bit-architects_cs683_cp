@@ -1,0 +1,58 @@
+#!/bin/bash
+touch instr_page_dist
+touch data_page_dist
+# --- Add iTP Configuration Parameters ---
+export ITP_MAX_LRU=12       # Max RRPV value (corresponds to STLB ways=12)
+export ITP_INSTR_POS=4      # Insertion position for instructions (N=4 from paper)
+export ITP_DATA_POS=8       # Promotion distance for data (M=8 from paper)
+
+# Optional: Add default TLB stress thresholds (from itp.cc getenv calls)
+export TLB_LOWER_STRESS_THRESHOLD=0
+export TLB_UPPER_STRESS_THRESHOLD=1000 # Set high to effectively disable threshold check initially
+
+export PAGE_ADDRESS_STATS_FILENAME_PREFIX=stats
+export RECALL_DIST_FILENAME_PREFIX=recall_dist
+export LATENCY_HISTOGRAM_FILENAME_PREFIX=latency_histogram
+export CACHELINE_STATS_FILENAME_PREFIX=cacheline_stats
+export BANDWIDTH_STATS_FILENAME_PREFIX=bandwidth_stats
+export BANDWIDTH_LATENCY_HISTOGRAM_FILENAME_PREFIX=bandwidth_latency_histogram
+export BANDWIDTH_UTILIZATION_FILENAME_PREFIX=bandwidth_utilization
+export DRAM_POWER_STATS_FILENAME_PREFIX=dram_power_stats
+export DRAM_TIMING_STATS_FILENAME_PREFIX=dram_timing_stats
+export L2_BANDWIDTH_STATS_FILENAME_PREFIX=l2_bandwidth_stats
+export L3_BANDWIDTH_STATS_FILENAME_PREFIX=l3_bandwidth_stats
+export L2_POWER_STATS_FILENAME_PREFIX=l2_power_stats
+export L3_POWER_STATS_FILENAME_PREFIX=l3_power_stats
+export L2_TIMING_STATS_FILENAME_PREFIX=l2_timing_stats
+export L3_TIMING_STATS_FILENAME_PREFIX=l3_timing_stats
+export CORE_POWER_STATS_FILENAME_PREFIX=core_power_stats
+export CORE_TIMING_STATS_FILENAME_PREFIX=core_timing_stats
+export BRANCH_PREDICTOR_STATS_FILENAME_PREFIX=branch_predictor_stats
+export INSTRUCTION_WINDOW_STATS_FILENAME_PREFIX=instruction_window_stats
+export FETCH_BUFFER_STATS_FILENAME_PREFIX=fetch_buffer_stats
+export REORDER_BUFFER_STATS_FILENAME_PREFIX=reorder_buffer_stats
+export LOAD_QUEUE_STATS_FILENAME_PREFIX=load_queue_stats
+export STORE_QUEUE_STATS_FILENAME_PREFIX=store_queue_stats
+export SIMD_UNIT_STATS_FILENAME_PREFIX=simd_unit_stats
+export INTEGER_ALU_STATS_FILENAME_PREFIX=integer_alu_stats
+export FP_ALU_STATS_FILENAME_PREFIX=fp_alu_stats
+export DIVIDER_STATS_FILENAME_PREFIX=divider_stats
+export LSU_STATS_FILENAME_PREFIX=lsu_stats
+export ITLB_STATS_FILENAME_PREFIX=itlb_stats
+export DTLB_STATS_FILENAME_PREFIX=dtlb_stats
+export L1I_STATS_FILENAME_PREFIX=l1i_stats
+export L1D_STATS_FILENAME_PREFIX=l1d_stats
+export L2_STATS_FILENAME_PREFIX=l2_stats
+export L3_STATS_FILENAME_PREFIX=l3_stats
+export DRAM_STATS_FILENAME_PREFIX=dram_stats
+export TRACE_STATS_FILENAME_PREFIX=trace_stats
+export GENERAL_STATS_FILENAME_PREFIX=general_stats
+export BRANCH_TRACE_FILENAME_PREFIX=branch_trace
+export INSTRUCTION_TRACE_FILENAME_PREFIX=instruction_trace
+export MEMORY_TRACE_FILENAME_PREFIX=memory_trace
+export CACHELINE_TRACE_FILENAME_PREFIX=cacheline_trace
+export INSTR_PAGE_DIST_FILENAME=instr_page_dist
+export DATA_PAGE_DIST_FILENAME=data_page_dist
+export PHYS_ADDR_TRACE_FILENAME=phys_addr_trace
+
+
