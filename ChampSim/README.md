@@ -13,6 +13,7 @@ ChampSim takes a JSON configuration script. Examine `champsim_config.json` for a
 ```
 $ ./config.sh <configuration file>
 $ make
+$ source set_env.sh
 ```
 
 Traces used: https://drive.google.com/drive/folders/1KHC3VXy-mOTc1qvIrVmEkwYMG1tK62DX?usp=sharing
